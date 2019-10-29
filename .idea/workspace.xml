@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcc00e6f-648a-4690-9e04-bcca74b90507" name="Default Changelist" comment="Form de inventario completa, imagenes de icono">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventario.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Inventario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/calendar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/equipment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/maintenance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/users.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="dcc00e6f-648a-4690-9e04-bcca74b90507" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inicio.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inicio.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -133,7 +119,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="405" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572375365417" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572375441470" />
     <property name="last_opened_file_path" value="D:/Programas/poi-4.1.1/lib" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -186,6 +172,14 @@
       <updated>1572364825716</updated>
       <workItem from="1572364827381" duration="266000" />
     </task>
+    <task id="LOCAL-00001" summary="Form de inventario completa, imagenes de icono">
+      <created>1572375447368</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572375447368</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
