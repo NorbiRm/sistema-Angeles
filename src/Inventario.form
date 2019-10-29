@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Inventario">
+  <grid id="27dc6" binding="invPanel" layout-manager="GridLayoutManager" row-count="5" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="916" height="734"/>
+    </constraints>
+    <properties>
+      <background color="-1246721"/>
+      <minimumSize width="800" height="60"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="89057" class="javax.swing.JButton" binding="addEquipment">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="309" height="31"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="18"/>
+          <foreground color="-1"/>
+          <text value="Añadir Equipo"/>
+        </properties>
+      </component>
+      <scrollpane id="7fae4">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="10" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font style="1"/>
+          <opaque value="true"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="bb441" class="javax.swing.JTable" binding="inventarioTable">
+            <constraints/>
+            <properties>
+              <background color="-1"/>
+              <gridColor color="-5789785"/>
+              <selectionBackground color="-1"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <grid id="bab23" binding="titlePanel" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="10" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <vspacer id="5bbcc">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="7e796" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="logo.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="797de" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <doubleBuffered value="false"/>
+              <font name="Calibri" size="36" style="1"/>
+              <foreground color="-1"/>
+              <horizontalAlignment value="2"/>
+              <horizontalTextPosition value="2"/>
+              <iconTextGap value="5"/>
+              <labelFor value=""/>
+              <text value="EQUIPO"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="f65d3" class="javax.swing.JButton" binding="deleteEquipment">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="171" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="18"/>
+          <foreground color="-1"/>
+          <text value="Eliminar Equipo"/>
+        </properties>
+      </component>
+      <component id="4a216" class="javax.swing.JButton" binding="viewTable">
+        <constraints>
+          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="309" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="16"/>
+          <foreground color="-1"/>
+          <text value="Ver Tabla Completa"/>
+        </properties>
+      </component>
+      <component id="1b69c" class="javax.swing.JButton" binding="updateEquipment">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="18"/>
+          <foreground color="-1"/>
+          <opaque value="true"/>
+          <text value="Actualizar Datos"/>
+        </properties>
+      </component>
+      <component id="6a79d" class="javax.swing.JButton" binding="printTable">
+        <constraints>
+          <grid row="2" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="1" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="16"/>
+          <foreground color="-1"/>
+          <text value="Imprimir Tabla"/>
+        </properties>
+      </component>
+      <component id="9dd83" class="javax.swing.JTextField" binding="searchField">
+        <constraints>
+          <grid row="3" column="5" row-span="1" col-span="3" vsize-policy="2" hsize-policy="6" anchor="8" fill="1" indent="1" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="24c36" class="javax.swing.JButton" binding="buscarButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="14"/>
+          <foreground color="-1"/>
+          <text value="Buscar"/>
+        </properties>
+      </component>
+      <component id="d1809" class="javax.swing.JComboBox" binding="filterColumn">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <model>
+            <item value="Equipo"/>
+            <item value="Marca"/>
+            <item value="Modelo"/>
+            <item value="Area"/>
+          </model>
+        </properties>
+      </component>
+      <hspacer id="8f9d3">
+        <constraints>
+          <grid row="3" column="9" row-span="1" col-span="1" vsize-policy="1" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="ab246">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <grid id="5fc66" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="10" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="2b0bd" class="javax.swing.JButton" binding="inicioButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font size="14"/>
+              <foreground color="-13675370"/>
+              <icon value="home.png"/>
+              <text value="Inicio"/>
+            </properties>
+          </component>
+          <component id="40298" class="javax.swing.JButton" binding="inventarioButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font size="14"/>
+              <foreground color="-13675370"/>
+              <icon value="equipment.png"/>
+              <text value="Inventario"/>
+            </properties>
+          </component>
+          <component id="575ce" class="javax.swing.JButton" binding="mantenimientoButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font size="14"/>
+              <foreground color="-13675370"/>
+              <icon value="maintenance.png"/>
+              <text value="Mantenimiento"/>
+            </properties>
+          </component>
+          <component id="c60a3" class="javax.swing.JButton" binding="calendarioButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <focusable value="false"/>
+              <font size="14"/>
+              <foreground color="-13675370"/>
+              <icon value="calendar.png"/>
+              <text value="Calendario"/>
+            </properties>
+          </component>
+          <component id="2eca6" class="javax.swing.JButton" binding="usuariosButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font size="14"/>
+              <foreground color="-13675370"/>
+              <icon value="users.png"/>
+              <text value="Usuarios"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
