@@ -46,7 +46,7 @@ public class RegistroEquipo {
     private JComboBox providerSelect;
     private JEditorPane accessoriesText;
 
-    public RegistroEquipo(){
+    public RegistroEquipo(Controller controller){
         Color backColor = new Color(47,84,150);
         this.accessoriesText.setBorder(new LineBorder(backColor));
     }

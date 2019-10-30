@@ -23,7 +23,7 @@ public class Usuario {
     private JButton deleteUser;
     private JFormattedTextField searchUserField;
 
-    public Usuario() {
+    public Usuario(Controller controller) {
         String header[] = {"Nombre", "Puesto", "Género", "Fecha de Registro"};
         String data[][] = {
                 {"Ana P","Pasante","Femenino","18/06/2017"},

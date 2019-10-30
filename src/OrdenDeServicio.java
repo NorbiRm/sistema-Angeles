@@ -1,3 +1,4 @@
+import javax.naming.ldap.Control;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
@@ -30,7 +31,7 @@ public class OrdenDeServicio {
     private JLabel userReceivesLabel;
     private JLabel userInChargeLabel;
 
-    public OrdenDeServicio(){
+    public OrdenDeServicio(Controller controller){
         Color backColor = new Color(47,84,150);
         this.failureText.setBorder(new LineBorder(backColor));
         this.workDonetext.setBorder(new LineBorder(backColor));

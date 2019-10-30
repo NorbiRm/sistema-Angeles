@@ -28,7 +28,7 @@ public class Inventario {
     private JTextField searchEquipmentTextField;
 
 
-    public Inventario() {
+    public Inventario(Controller controller) {
         String header[] = {"Numero Control", "Equipo", "Marca", "Modelo", "Numero de Serie", "Area", "Proveedor de Compra"};
         String data[][] = {
                 {"100","Vinod","programmer","5000"},
