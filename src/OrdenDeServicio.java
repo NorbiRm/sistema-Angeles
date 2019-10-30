@@ -31,7 +31,11 @@ public class OrdenDeServicio {
     private JLabel userReceivesLabel;
     private JLabel userInChargeLabel;
 
+    private Controller controller;
+
     public OrdenDeServicio(Controller controller){
+        this.controller = controller;
+
         Color backColor = new Color(47,84,150);
         this.failureText.setBorder(new LineBorder(backColor));
         this.workDonetext.setBorder(new LineBorder(backColor));

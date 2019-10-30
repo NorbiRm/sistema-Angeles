@@ -23,7 +23,10 @@ public class RegistroUsuario {
     private JLabel dateErrorLabel;
     private JLabel errorLabel;
 
+    private Controller controller;
+
     public RegistroUsuario(Controller controller){
+        this.controller = controller;
         this.saveUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

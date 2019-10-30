@@ -25,9 +25,12 @@ public class Mantenimiento {
     private JButton viewFullTable;
     private JPanel titlePanel;
 
+    private Controller controller;
 
 
     public Mantenimiento(Controller controller) {
+        this.controller = controller;
+
         String header[] = {"Folio","Número Control", "Número Serie", "Equipo", "Marca", "Modelo","Fecha Solicitud", "Fecha Terminación", "Área", "Falla", "Trabajo Realizado", "Partes Nuevas", "Costo Refacciones", "Costo Servicio Externo", "Costo Total"};
         String data[][] = {
                 {"100","Vinod","programmer","5000"},

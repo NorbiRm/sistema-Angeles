@@ -27,8 +27,12 @@ public class Inventario {
     private JComboBox filterColumn;
     private JTextField searchEquipmentTextField;
 
+    private Controller controller;
+
 
     public Inventario(Controller controller) {
+        this.controller = controller;
+
         String header[] = {"Numero Control", "Equipo", "Marca", "Modelo", "Numero de Serie", "Area", "Proveedor de Compra"};
         String data[][] = {
                 {"100","Vinod","programmer","5000"},
