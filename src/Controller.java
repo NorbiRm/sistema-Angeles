@@ -84,7 +84,6 @@ public class Controller {
 
     public Object[][] showEquipo(){
         int num_equipos = this.system.equipos.size();
-        System.out.println("Num equipos "+ num_equipos);
         Object[][] data = new Object[num_equipos][];
         for(int i=0;i<num_equipos;i++){
             data[i] = this.system.equipos.get(i).getAsRow();
@@ -94,17 +93,15 @@ public class Controller {
 
     public Object[][] showUsuarios(){
         int num_usuarios = this.system.usuarios.size();
-        System.out.println("Num equipos "+ num_usuarios);
         Object[][] data = new Object[num_usuarios][];
         for(int i=0;i<num_usuarios;i++){
-            //data[i] = this.system.usuarios.get(i).getAsRow();
+            data[i] = this.system.usuarios.get(i).getAsRow();
         }
         return data;
     }
 
     public Object[][] showServicios(){
         int num_mantenimientos = this.system.mantenimientos.size();
-        System.out.println("Num equipos "+ num_mantenimientos);
         Object[][] data = new Object[num_mantenimientos][];
         for(int i=0;i<num_mantenimientos;i++){
             data[i] = this.system.mantenimientos.get(i).getAsRow();
@@ -226,30 +223,6 @@ public class Controller {
             return false;
     }
 
-    public boolean updateWBSheet(DefaultTableModel newDataModel, String sheetName){
-        Vector<Vector> newData = newDataModel.getDataVector();
-        try{
-            Object[] wb_data = loadWB();
-            ((FileInputStream)wb_data[2]).close();
-
-            if(wb_data[1].equals("xlsx")){
-                XSSFWorkbook wb = (XSSFWorkbook)wb_data[0];
-                Sheet sheet_toedit = wb.getSheet(sheetName);
-
-            } else{
-                HSSFWorkbook wb = (HSSFWorkbook)wb_data[0];
-                Sheet sheet_toedit = wb.getSheet(sheetName);
-            }
-            //ubicar la sheet que se va a mover
-            //eliminar todas las rows excepto la primera
-
-            //recorrer fila por fila del modelo excepto la primera y escribir
-
-        } catch(Exception e){
-
-        }
-        return false;
-    }
 
     public void calculateKPIs(){
         //% mantos correctos e incorrectos

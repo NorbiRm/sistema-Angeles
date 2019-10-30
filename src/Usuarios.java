@@ -16,4 +16,14 @@ public class Usuarios {
         this.genero = genero;
         this.fecha_registro = fecha_registro;
     }
+
+    public Object[] getAsRow(){
+        Object[] usuario = new Object[4];
+        usuario[0] = this.clave;
+        usuario[1] = this.nombre;
+        usuario[2] = this.genero;
+        usuario[3] = this.fecha_registro;
+
+        return usuario;
+    }
 }

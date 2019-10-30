@@ -28,13 +28,9 @@ public class Usuario {
     public Usuario(Controller controller) {
         this.controller = controller;
 
-        String header[] = {"Nombre", "Puesto", "Género", "Fecha de Registro"};
-        String data[][] = {
-                {"Ana P","Pasante","Femenino","18/06/2017"},
-                {"Ana P","Pasante","Femenino","18/06/2017"},
-                {"Ana P","Pasante","Femenino","18/06/2017"},
-                {"Ana P","Pasante","Femenino","18/06/2017"}
-        };
+        String header[] = {"Nombre", "Puesto", "Genero", "Fecha de Registro"};
+        String header_completo[] = controller.cols_usuarios;
+        Object[][] data = controller.showUsuarios();
         DefaultTableModel model = new DefaultTableModel(data, header) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -92,7 +88,7 @@ public class Usuario {
             }
         });
     }
-    public void deleteUserWindow(EliminarUsuario form){
+    /*public void deleteUserWindow(EliminarUsuario form){
         this.deleteUser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -104,5 +100,5 @@ public class Usuario {
                 mainFrame.setVisible(true);
             }
         });
-    }
+    }*/
 }
