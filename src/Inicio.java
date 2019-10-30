@@ -10,10 +10,11 @@ public class Inicio {
     private JButton showCalendarButton;
     private JPanel buttonsPanel;
     private JPanel imagePanel;
+    private Controller controller;
 
 
-    public Inicio() {
-
+    public Inicio(Controller controller) {
+        this.controller = controller;
     }
 
     public void showInventory( JFrame f, Inventario inv){

@@ -34,19 +34,9 @@ public class Inventario {
         this.controller = controller;
 
         String header[] = {"Numero Control", "Equipo", "Marca", "Modelo", "Numero de Serie", "Area", "Proveedor de Compra"};
-        String data[][] = {
-                {"100","Vinod","programmer","5000"},
-                {"101","Deepak","Content Writer","20000"},
-                {"101","Deepak","Content Writer","20000"},
-                {"101","Deepak","Content Writer","20000"},
-                {"101","Deepak","Content Writer","20000"},
-                {"101","Deepak","Content Writer","20000"},
-                {"102","Noor","Techniqual Writer","30000"},
-                {"102","Noor","Techniqual Writer","30000"},
-                {"102","Noor","Techniqual Writer","30000"},
-                {"102","Noor","Techniqual Writer","30000"},
-                {"104","Rinku","PHP programar","25000"}
-        };
+        String header_completo[] = controller.cols_equipos;
+        //Object[][] data = new Object[][];
+        Object[][] data = controller.showEquipo();
         DefaultTableModel model = new DefaultTableModel(data, header) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -60,6 +50,18 @@ public class Inventario {
         inventoryTable.getTableHeader().setReorderingAllowed(false);
         inventoryTable.getTableHeader().setBackground(backColor);
         inventoryTable.getTableHeader().setForeground(Color.white);
+        viewFullTable.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(viewFullTable.getText().compareTo("Ver Tabla Completa") == 0){
+                    inventoryTable.setModel(new DefaultTableModel(data, header_completo));
+                    viewFullTable.setText("Ver Tabla Reducida");
+                }else{
+                    inventoryTable.setModel(new DefaultTableModel(data, header));
+                    viewFullTable.setText("Ver Tabla Completa");
+                }
+            }
+        });
     }
 
     public void showHome(JFrame f, Inicio home){

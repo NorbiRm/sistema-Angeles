@@ -6,15 +6,15 @@ import java.awt.event.ActionListener;
 public class Main {
     public static void main(String [] args){
         JFrame mainFrame = new JFrame("Sistema de Gestión de Equipo");
+        Controller controller = new Controller();
 
-
-        Inicio homeWindow = new Inicio();
-        Inventario inventoryWindow = new Inventario();
-        RegistroEquipo equipmentRegister = new RegistroEquipo();
-        Usuario userWindow = new Usuario();
-        RegistroUsuario userRegister = new RegistroUsuario();
-        Mantenimiento maintenanceWindow = new Mantenimiento();
-        OrdenDeServicio serviceOrder = new OrdenDeServicio();
+        Inicio homeWindow = new Inicio(controller);
+        Inventario inventoryWindow = new Inventario(controller);
+        RegistroEquipo equipmentRegister = new RegistroEquipo(controller);
+        Usuario userWindow = new Usuario(controller);
+        RegistroUsuario userRegister = new RegistroUsuario(controller);
+        Mantenimiento maintenanceWindow = new Mantenimiento(controller);
+        OrdenDeServicio serviceOrder = new OrdenDeServicio(controller);
 
         mainFrame.setContentPane(homeWindow.homePanel);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,6 +40,9 @@ public class Main {
         maintenanceWindow.showInventory(mainFrame, inventoryWindow);
         maintenanceWindow.showUsers(mainFrame, userWindow);
         maintenanceWindow.newServiceOrderWindow(serviceOrder);
+
+
+
 
 
     }

@@ -32,19 +32,8 @@ public class Mantenimiento {
         this.controller = controller;
 
         String header[] = {"Folio","Número Control", "Número Serie", "Equipo", "Marca", "Modelo","Fecha Solicitud", "Fecha Terminación", "Área", "Falla", "Trabajo Realizado", "Partes Nuevas", "Costo Refacciones", "Costo Servicio Externo", "Costo Total"};
-        String data[][] = {
-                {"100","Vinod","programmer","5000"},
-                {"101","Deepak","Content Writer","20000"},
-                {"101","Deepak","Content Writer","20000"},
-                {"101","Deepak","Content Writer","20000"},
-                {"101","Deepak","Content Writer","20000"},
-                {"101","Deepak","Content Writer","20000"},
-                {"102","Noor","Techniqual Writer","30000"},
-                {"102","Noor","Techniqual Writer","30000"},
-                {"102","Noor","Techniqual Writer","30000"},
-                {"102","Noor","Techniqual Writer","30000"},
-                {"104","Rinku","PHP programar","25000"}
-        };
+        String header_completo[] = controller.cols_servicios;
+        Object[][] data = controller.showServicios();
         DefaultTableModel model = new DefaultTableModel(data, header) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -58,6 +47,18 @@ public class Mantenimiento {
         maintTable.getTableHeader().setReorderingAllowed(false);
         maintTable.getTableHeader().setBackground(backColor);
         maintTable.getTableHeader().setForeground(Color.white);
+        viewFullTable.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(viewFullTable.getText().compareTo("Ver Tabla Completa") == 0){
+                    maintTable.setModel(new DefaultTableModel(data, header_completo));
+                    viewFullTable.setText("Ver Tabla Reducida");
+                }else{
+                    maintTable.setModel(new DefaultTableModel(data, header));
+                    viewFullTable.setText("Ver Tabla Completa");
+                }
+            }
+        });
     }
 
     public void showHome(JFrame f, Inicio home){
