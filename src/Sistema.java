@@ -4,13 +4,42 @@ public class Sistema {
     public ArrayList<Equipo> equipos;
     public ArrayList<Servicio> mantenimientos;
     public ArrayList<Usuarios> usuarios;
-    public Controller controller;
 
     public Sistema(ArrayList<Equipo> equipos, ArrayList<Usuarios> usuarios, ArrayList<Servicio> mantenimientos) {
         this.equipos = equipos;
         this.mantenimientos = mantenimientos;
         this.usuarios = usuarios;
         atts();
+    }
+
+    public boolean addEquipo(Object[] row){
+        Equipo nuevo_equipo = new Equipo(row);
+        try{
+            this.equipos.add(nuevo_equipo);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
+
+    public boolean addUsuario(Object[] row){
+        Usuarios nuevo_usuario = new Usuarios(row);
+        try{
+            this.usuarios.add(nuevo_usuario);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
+
+    public boolean addServicio(Object[] row){
+        Servicio nuevo_servicio = new Servicio(row);
+        try{
+            this.mantenimientos.add(nuevo_servicio);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
 
     public void atts(){

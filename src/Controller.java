@@ -223,7 +223,6 @@ public class Controller {
             return false;
     }
 
-
     public void calculateKPIs(){
         //% mantos correctos e incorrectos
         //System.out.println(getTiempoMantenimientoPromedio());
