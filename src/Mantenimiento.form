@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Inventario">
-  <grid id="27dc6" binding="invPanel" layout-manager="GridLayoutManager" row-count="8" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Mantenimiento">
+  <grid id="27dc6" binding="maintPanel" layout-manager="GridLayoutManager" row-count="8" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="1321" height="884"/>
@@ -44,15 +44,15 @@
               <horizontalTextPosition value="2"/>
               <iconTextGap value="5"/>
               <labelFor value=""/>
-              <text value="EQUIPO"/>
+              <text value="MANTENIMIENTO"/>
             </properties>
           </component>
-          <component id="69eff" class="javax.swing.JLabel">
+          <component id="605ce" class="javax.swing.JLabel">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <icon value="Img/equipmentLarge.png"/>
+              <icon value="Img/maintenanceLarge.png"/>
               <text value=""/>
             </properties>
           </component>
@@ -66,7 +66,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="2b0bd" class="javax.swing.JButton" binding="homeMenuButton">
+          <component id="2b0bd" class="javax.swing.JButton" binding="homeButton">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -78,7 +78,7 @@
               <text value="Inicio"/>
             </properties>
           </component>
-          <component id="575ce" class="javax.swing.JButton" binding="maintenanceMenuButton">
+          <component id="575ce" class="javax.swing.JButton" binding="inventoryButton">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -86,11 +86,11 @@
               <background color="-1"/>
               <font size="14"/>
               <foreground color="-13675370"/>
-              <icon value="Img/maintenance.png"/>
-              <text value="Mantenimiento"/>
+              <icon value="Img/equipment.png"/>
+              <text value="Inventario de Equipos"/>
             </properties>
           </component>
-          <component id="c60a3" class="javax.swing.JButton" binding="calendarMenuButton">
+          <component id="c60a3" class="javax.swing.JButton" binding="calendarButton">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -103,7 +103,7 @@
               <text value="Calendario"/>
             </properties>
           </component>
-          <component id="2eca6" class="javax.swing.JButton" binding="usersMenuButton">
+          <component id="2eca6" class="javax.swing.JButton" binding="usersButton">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -117,112 +117,9 @@
           </component>
         </children>
       </grid>
-      <component id="4a216" class="javax.swing.JButton" binding="viewFullTable">
-        <constraints>
-          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-13675370"/>
-          <font size="16"/>
-          <foreground color="-1"/>
-          <text value="Ver Tabla Completa"/>
-        </properties>
-      </component>
-      <component id="1b69c" class="javax.swing.JButton" binding="updateEquipment">
-        <constraints>
-          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-13675370"/>
-          <font size="18"/>
-          <foreground color="-1"/>
-          <opaque value="true"/>
-          <text value="Actualizar Datos"/>
-        </properties>
-      </component>
-      <component id="f65d3" class="javax.swing.JButton" binding="deleteEquipment">
-        <constraints>
-          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="171" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-13675370"/>
-          <font size="18"/>
-          <foreground color="-1"/>
-          <text value="Eliminar Equipo"/>
-        </properties>
-      </component>
-      <component id="89057" class="javax.swing.JButton" binding="addEquipment">
-        <constraints>
-          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="309" height="31"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-13675370"/>
-          <font size="18"/>
-          <foreground color="-1"/>
-          <text value="Añadir Equipo"/>
-        </properties>
-      </component>
-      <component id="d1809" class="javax.swing.JComboBox" binding="filterColumn">
-        <constraints>
-          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="98" height="32"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-1"/>
-          <font name="Calibri" size="14"/>
-          <foreground color="-16777216"/>
-          <model>
-            <item value="Equipo"/>
-            <item value="Marca"/>
-            <item value="Modelo"/>
-            <item value="Area"/>
-          </model>
-        </properties>
-      </component>
-      <component id="24c36" class="javax.swing.JButton" binding="searchButton">
-        <constraints>
-          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="32"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-13675370"/>
-          <font size="14"/>
-          <foreground color="-1"/>
-          <icon value="Img/search.png"/>
-          <text value="Buscar"/>
-        </properties>
-      </component>
-      <component id="6a79d" class="javax.swing.JButton" binding="printTable">
-        <constraints>
-          <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-13675370"/>
-          <font size="16"/>
-          <foreground color="-1"/>
-          <text value="Imprimir Tabla"/>
-        </properties>
-      </component>
-      <component id="8dc92" class="javax.swing.JTextField" binding="searchEquipmentTextField">
-        <constraints>
-          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <foreground color="-13675370"/>
-          <text value=""/>
-        </properties>
-      </component>
       <vspacer id="2c4c1">
         <constraints>
-          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
             <minimum-size width="-1" height="20"/>
             <preferred-size width="-1" height="20"/>
             <maximum-size width="-1" height="20"/>
@@ -231,7 +128,7 @@
       </vspacer>
       <vspacer id="19b20">
         <constraints>
-          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
             <minimum-size width="-1" height="20"/>
             <preferred-size width="-1" height="20"/>
             <maximum-size width="-1" height="20"/>
@@ -240,7 +137,7 @@
       </vspacer>
       <vspacer id="ee12e">
         <constraints>
-          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
             <minimum-size width="-1" height="20"/>
             <preferred-size width="-1" height="20"/>
             <maximum-size width="-1" height="20"/>
@@ -272,7 +169,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="3db96" class="javax.swing.JTable" binding="inventoryTable">
+          <component id="3db96" class="javax.swing.JTable" binding="maintTable">
             <constraints/>
             <properties>
               <background color="-1"/>
@@ -280,11 +177,100 @@
               <foreground color="-13675370"/>
               <gridColor color="-5789785"/>
               <rowHeight value="25"/>
-              <selectionBackground color="-11362843"/>
+              <selectionBackground color="-13675370"/>
             </properties>
           </component>
         </children>
       </scrollpane>
+      <component id="24c36" class="javax.swing.JButton" binding="searchButton">
+        <constraints>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="32"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="14"/>
+          <foreground color="-1"/>
+          <icon value="Img/search.png"/>
+          <text value="Buscar"/>
+        </properties>
+      </component>
+      <component id="8dc92" class="javax.swing.JTextField" binding="searchMaintentanceTextField">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <foreground color="-13675370"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="d1809" class="javax.swing.JComboBox" binding="filterColumn">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="98" height="32"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <font name="Calibri" size="14"/>
+          <foreground color="-16777216"/>
+          <model>
+            <item value="Equipo"/>
+            <item value="Marca"/>
+            <item value="Modelo"/>
+          </model>
+        </properties>
+      </component>
+      <component id="89057" class="javax.swing.JButton" binding="generateOrder">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="309" height="31"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="18"/>
+          <foreground color="-1"/>
+          <text value="Generar Orden de Servicio"/>
+        </properties>
+      </component>
+      <component id="1b69c" class="javax.swing.JButton" binding="exportHistory">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="18"/>
+          <foreground color="-1"/>
+          <opaque value="true"/>
+          <text value="Exportar Historial"/>
+        </properties>
+      </component>
+      <component id="6a79d" class="javax.swing.JButton" binding="incidentReport">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="16"/>
+          <foreground color="-1"/>
+          <text value="Reporte de Incidencia"/>
+        </properties>
+      </component>
+      <component id="4a216" class="javax.swing.JButton" binding="viewFullTable">
+        <constraints>
+          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13675370"/>
+          <font size="16"/>
+          <foreground color="-1"/>
+          <text value="Ver Tabla Completa"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

@@ -4,32 +4,31 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Inventario {
-
+public class Mantenimiento {
     // Root Panel
-    public JPanel invPanel;
+    public JPanel maintPanel;
     // Data Table
-    private JTable inventoryTable;
+    private JTable maintTable;
     // Menu Buttons
-    private JPanel titlePanel;
-    private JButton homeMenuButton;
-    private JButton maintenanceMenuButton;
-    private JButton calendarMenuButton;
-    private JButton usersMenuButton;
-    private JButton deleteEquipment;
-    // Inventory Actions
     private JPanel menuPanel;
-    private JButton addEquipment;
-    private JButton viewFullTable;
-    private JButton updateEquipment;
-    private JButton printTable;
+    private JButton homeButton;
+    private JButton inventoryButton;
+    private JButton calendarButton;
+    private JButton usersButton;
+    // Maintenance Buttons
     private JButton searchButton;
+    private JTextField searchMaintentanceTextField;
     private JComboBox filterColumn;
-    private JTextField searchEquipmentTextField;
+    private JButton generateOrder;
+    private JButton exportHistory;
+    private JButton incidentReport;
+    private JButton viewFullTable;
+    private JPanel titlePanel;
 
 
-    public Inventario() {
-        String header[] = {"Numero Control", "Equipo", "Marca", "Modelo", "Numero de Serie", "Area", "Proveedor de Compra"};
+
+    public Mantenimiento() {
+        String header[] = {"Folio","Número Control", "Número Serie", "Equipo", "Marca", "Modelo","Fecha Solicitud", "Fecha Terminación", "Área", "Falla", "Trabajo Realizado", "Partes Nuevas", "Costo Refacciones", "Costo Servicio Externo", "Costo Total"};
         String data[][] = {
                 {"100","Vinod","programmer","5000"},
                 {"101","Deepak","Content Writer","20000"},
@@ -50,16 +49,16 @@ public class Inventario {
                 return false;
             }
         };
-        inventoryTable.setModel(model);
+        maintTable.setModel(model);
         Color backColor = new Color(47,84,150);
-        inventoryTable.getTableHeader().setFont(new Font("Calibri", Font.BOLD, 18));
-        inventoryTable.getTableHeader().setReorderingAllowed(false);
-        inventoryTable.getTableHeader().setBackground(backColor);
-        inventoryTable.getTableHeader().setForeground(Color.white);
+        maintTable.getTableHeader().setFont(new Font("Calibri", Font.BOLD, 18));
+        maintTable.getTableHeader().setReorderingAllowed(false);
+        maintTable.getTableHeader().setBackground(backColor);
+        maintTable.getTableHeader().setForeground(Color.white);
     }
 
     public void showHome(JFrame f, Inicio home){
-        this.homeMenuButton.addActionListener(new ActionListener() {
+        this.homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setContentPane(home.homePanel);
@@ -68,18 +67,8 @@ public class Inventario {
             }
         });
     }
-    public void showMaintenance( JFrame f, Mantenimiento maint){
-        this.maintenanceMenuButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.setContentPane(maint.maintPanel);
-                f.revalidate();
-                f.repaint();
-            }
-        });
-    }
     public void showUsers( JFrame f, Usuario user){
-        this.usersMenuButton.addActionListener(new ActionListener() {
+        this.usersButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //f.remove(inicio.panel1);
@@ -89,13 +78,23 @@ public class Inventario {
             }
         });
     }
-    public void newEquipmentWindow(RegistroEquipo form){
-        this.addEquipment.addActionListener(new ActionListener() {
+    public void showInventory(JFrame f, Inventario inv){
+        this.inventoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame mainFrame = new JFrame("Registrar Nuevo Equipo");
-                mainFrame.setContentPane(form.registerEquipmentPanel);
-                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                f.setContentPane(inv.invPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+    public void newServiceOrderWindow(OrdenDeServicio form){
+        this.generateOrder.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame mainFrame = new JFrame("Nueva Orden de Servicio");
+                mainFrame.setContentPane(form.serviceOrderPanel);
+                mainFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 mainFrame.setSize(900, 600);
                 mainFrame.setResizable(false);
                 mainFrame.setVisible(true);

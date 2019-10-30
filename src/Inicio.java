@@ -3,11 +3,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Inicio {
-    private JButton invButton;
+    private JButton showInventoryButton;
     public JPanel homePanel;
-    private JButton usersButton;
-    private JButton mantButton;
-    private JButton calendarioButton;
+    private JButton showUsersButton;
+    private JButton showMaintenanceButton;
+    private JButton showCalendarButton;
     private JPanel buttonsPanel;
     private JPanel imagePanel;
 
@@ -17,7 +17,7 @@ public class Inicio {
     }
 
     public void showInventory( JFrame f, Inventario inv){
-        this.invButton.addActionListener(new ActionListener() {
+        this.showInventoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //f.remove(inicio.panel1);
@@ -27,8 +27,18 @@ public class Inicio {
             }
         });
     }
+    public void showMaintenance( JFrame f, Mantenimiento maint){
+        this.showMaintenanceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(maint.maintPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
     public void showUsers( JFrame f, Usuario user){
-        this.usersButton.addActionListener(new ActionListener() {
+        this.showUsersButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //f.remove(inicio.panel1);

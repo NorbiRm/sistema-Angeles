@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Inicio">
-  <grid id="27dc6" binding="homePanel" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="homePanel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1533" height="868"/>
+      <xy x="12" y="18" width="1399" height="718"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="67306" binding="imagePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="67306" binding="imagePanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="0" column="0" row-span="4" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
         </constraints>
         <properties>
           <enabled value="false"/>
@@ -21,58 +21,36 @@
         <children>
           <component id="c1a18" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <enabled value="true"/>
-              <icon value="ImagenInicio.png"/>
+              <icon value="Img/ImagenInicio.png"/>
               <text value=""/>
               <visible value="true"/>
             </properties>
           </component>
+          <component id="4bac1" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="56" style="1"/>
+              <foreground color="-13675370"/>
+              <text value="Sistema de Gestión de Equipo"/>
+            </properties>
+          </component>
         </children>
       </grid>
-      <component id="4bac1" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Calibri" size="48" style="1"/>
-          <foreground color="-13675370"/>
-          <text value="Sistema de Gestión de Equipo"/>
-        </properties>
-      </component>
-      <grid id="8928e" binding="buttonsPanel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="8928e" binding="buttonsPanel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="0" column="1" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="6f02f" class="javax.swing.JButton" binding="invButton">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-13675370"/>
-              <font name="Calibri" size="26" style="1"/>
-              <foreground color="-1"/>
-              <text value="Inventario de Equipo"/>
-            </properties>
-          </component>
-          <component id="6b236" class="javax.swing.JButton" binding="mantButton">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-13675370"/>
-              <font name="Calibri" size="26" style="1"/>
-              <foreground color="-1"/>
-              <text value="Mantenimiento"/>
-            </properties>
-          </component>
-          <component id="873e3" class="javax.swing.JButton" binding="calendarioButton" default-binding="true">
+          <component id="6b236" class="javax.swing.JButton" binding="showMaintenanceButton">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -80,10 +58,11 @@
               <background color="-13675370"/>
               <font name="Calibri" size="26" style="1"/>
               <foreground color="-1"/>
-              <text value="Calendario&#10;"/>
+              <icon value="Img/maintenanceLarge.png"/>
+              <text value="Mantenimiento"/>
             </properties>
           </component>
-          <component id="a9bbe" class="javax.swing.JButton" binding="usersButton">
+          <component id="873e3" class="javax.swing.JButton" binding="showCalendarButton">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -91,11 +70,64 @@
               <background color="-13675370"/>
               <font name="Calibri" size="26" style="1"/>
               <foreground color="-1"/>
+              <icon value="Img/calendarLarge.png"/>
+              <text value="Calendario&#10;"/>
+            </properties>
+          </component>
+          <component id="a9bbe" class="javax.swing.JButton" binding="showUsersButton">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13675370"/>
+              <font name="Calibri" size="26" style="1"/>
+              <foreground color="-1"/>
+              <icon value="Img/usersLarge.png"/>
               <text value="Usuarios"/>
+            </properties>
+          </component>
+          <vspacer id="c5cbd">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="20"/>
+                <preferred-size width="-1" height="20"/>
+                <maximum-size width="-1" height="20"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <component id="6f02f" class="javax.swing.JButton" binding="showInventoryButton">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13675370"/>
+              <font name="Calibri" size="26" style="1"/>
+              <foreground color="-1"/>
+              <icon value="Img/equipmentLarge.png"/>
+              <iconTextGap value="5"/>
+              <text value="Inventario de Equipo"/>
             </properties>
           </component>
         </children>
       </grid>
+      <hspacer id="31ec7">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="20" height="-1"/>
+            <preferred-size width="20" height="-1"/>
+            <maximum-size width="20" height="-1"/>
+          </grid>
+        </constraints>
+      </hspacer>
+      <vspacer id="184f">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="20"/>
+            <preferred-size width="-1" height="20"/>
+            <maximum-size width="-1" height="20"/>
+          </grid>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>
