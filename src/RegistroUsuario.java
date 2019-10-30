@@ -1,10 +1,9 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class RegistroUsuario {
     // Root Panel
@@ -38,13 +37,6 @@ public class RegistroUsuario {
                 Object userTypeObj = userTypeSelect.getSelectedItem();
                 String userType = userTypeObj.toString();
                 Object userGenderObj = userTypeSelect.getSelectedItem();
-                /*
-                Calendar cal = Calendar.getInstance();
-                cal.set(Calendar.YEAR, Integer.parseInt(dateData[0]));
-                cal.set(Calendar.MONTH, Calendar.JANUARY);
-                cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(dateData[2]) );
-                Date userD = new Date(), Integer.parseInt(dateData[1]), );
-                */
                 String userGender = userGenderObj.toString();
                 if(userType.equals("") || userName.equals("") || userGender.equals("")){
                     errorLabel.setText("Llene todos los campos");
@@ -64,12 +56,9 @@ public class RegistroUsuario {
             }
         });
     }
-
-
-
-
     private void createUIComponents() {
-        // TODO: place custom component creation code here
+        registerDateLabel = new JLabel("Text");
+        registerDateLabel.setForeground(Color.red);
         DateFormat format = new SimpleDateFormat("dd/mm/yyyy");
         format.setLenient(false);
         registerDateText = new JFormattedTextField(format);

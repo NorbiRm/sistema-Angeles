@@ -1,8 +1,5 @@
-import javax.naming.ldap.Control;
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 
 public class OrdenDeServicio {

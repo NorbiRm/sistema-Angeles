@@ -92,4 +92,17 @@ public class Usuario {
             }
         });
     }
+    public void deleteUserWindow(EliminarUsuario form){
+        this.deleteUser.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame mainFrame = new JFrame("Eliminar Usuario");
+                mainFrame.setContentPane(form.deleteUserPanel);
+                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                mainFrame.setSize(800, 500);
+                mainFrame.setResizable(false);
+                mainFrame.setVisible(true);
+            }
+        });
+    }
 }
