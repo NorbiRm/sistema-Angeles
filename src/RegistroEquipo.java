@@ -82,7 +82,13 @@ public class RegistroEquipo {
                 }
                 else{
                     errorLabel.setText("");
+                    // CREAR NUEVO EQUIPO
+
+                    // CIERRA LA VENTNA
+                    JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(registerEquipmentPanel);
+                    topFrame.dispose();
                 }
+
             }
         });
     }

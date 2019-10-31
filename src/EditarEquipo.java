@@ -91,6 +91,41 @@ public class EditarEquipo {
                         errorLabel.setText("");
                     }
                 }
+            }
+        });
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String equipmentControlN = textControlNumber.getText();
+                String equipmentName = textEquipment.getText();
+                String equipmentBrand = textBrand.getText();
+                String equipmentModel = textModel.getText();
+                String equipmentSerialNumber = textSerialNumber.getText();
+                String equipmentArea = (String) comboBoxArea.getSelectedItem();
+                String equipmentProviderB = textProvedor.getText();
+                String equipmentAccessories = textAccesories.getText();
+                String equipmentAssetNum = textFixAsset.getText();
+                String equipmentLocation = (String) comboBoxLocation.getSelectedItem();
+                String equipmentMaintenance = (String) comboBoxMaintenanceFrequency.getSelectedItem();
+                String equipmentDate = textInstallationDate.getText();
+                String equipmentState = (String) comboBoxStatus.getSelectedItem();
+                String equipmentServiceProvider = textServiceProvider.getText();
+                String equipmentContact = textContact.getText();
+                String equipmentTelephone = textTelephone.getText();
+                String equipmentReplacementParts = textReplacementParts.getText();
+
+
+                if(equipmentControlN.equals("") || equipmentName.equals("") || equipmentBrand.equals("") || equipmentModel.equals("") || equipmentSerialNumber.equals("") || equipmentArea.equals("") || equipmentProviderB.equals("") || equipmentAccessories.equals("") || equipmentAssetNum.equals("") || equipmentLocation.equals("") || equipmentMaintenance.equals("") || equipmentDate.equals("") || equipmentState.equals("") || equipmentServiceProvider.equals("") || equipmentContact.equals("") || equipmentTelephone.equals("") || equipmentReplacementParts.equals("")){
+                    errorLabel.setText("Llene todos los campos");
+                }
+                else{
+                    errorLabel.setText("");
+                    //EDITAR EQUIPO
+
+                    // CIERRA LA VENTNA
+                    JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(editEquipmentPanel);
+                    topFrame.dispose();
+                }
 
             }
         });

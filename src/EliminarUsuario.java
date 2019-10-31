@@ -26,16 +26,16 @@ public class EliminarUsuario {
             public void actionPerformed(ActionEvent e) {
                 Object selectedUserObj = comboBoxUser.getSelectedItem();
                 String selectedUser = selectedUserObj.toString();
-                System.out.println("Selected user : " + selectedUser);
                 for(int i = 0; i < controller.system.usuarios.size(); i++){
                     if(controller.system.usuarios.get(i).nombre.equals(selectedUser)){
                         System.out.println("Deleted user : " + controller.system.usuarios.get(i).nombre);
+                        //ELIMINAR USUARIO
                         controller.system.usuarios.remove(i);
                         comboBoxUser.removeItemAt(i);
                     }
 
                 }
-
+                // CERRAR VENTANA
                 JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(deleteUserPanel);
                 topFrame.dispose();
             }

@@ -54,7 +54,6 @@ public class RegistroUsuario {
                     registerUserPanel.revalidate();
                     registerUserPanel.repaint();
                 }
-
             }
         });
     }
