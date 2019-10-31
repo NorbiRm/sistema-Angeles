@@ -3,7 +3,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class Usuario {
     //Root Panel
@@ -30,7 +29,7 @@ public class Usuario {
 
     public Usuario(Controller controller){
         this.controller = controller;
-
+        Usuario self = this;
         userTable.setModel(generateModel());
         Color backColor = new Color(47,84,150);
         userTable.getTableHeader().setReorderingAllowed(false);
@@ -76,6 +75,7 @@ public class Usuario {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RegistroUsuario form = new RegistroUsuario(controller);
+                form.setUsuario(self);
                 JFrame mainFrame = new JFrame("Registrar Nuevo Usuario");
                 mainFrame.setContentPane(form.registerUserPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -85,6 +85,28 @@ public class Usuario {
             }
         });
 
+        searchUserButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String lookup = searchUserField.getText();
+                if(lookup!=null && controller.system.usuarioExiste(lookup)){
+                    String[] header = {"Nombre", "Puesto", "Genero", "Fecha de Registro"};
+                    Object[][] data = {controller.system.getUsuarioByName(lookup)};
+                    DefaultTableModel model = new DefaultTableModel(data, header) {
+                        @Override
+                        public boolean isCellEditable(int row, int column) {
+                            return false;
+                        }
+                    };
+                    userTable.setModel(model);
+                }else{
+                    userTable.setModel(generateModel());
+                }
+            }
+        });
+    }
+    public void setTableModel(DefaultTableModel model){
+        this.userTable.setModel(model);
     }
 
 

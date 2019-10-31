@@ -265,6 +265,16 @@ public class Controller {
         return numNulls<num_cols;
     }
 
+    public DefaultTableModel generateModel(Object[][] data, String[] header){
+        DefaultTableModel model = new DefaultTableModel(data, header) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        return model;
+    }
+
 
 
 }
