@@ -12,6 +12,8 @@ public class Main {
         Inventario inventoryWindow = new Inventario(controller);
         Usuario userWindow = new Usuario(controller);
         Mantenimiento maintenanceWindow = new Mantenimiento(controller);
+        Indicador indicatorWindow = new Indicador(controller);
+        Calendario calendarWindow = new Calendario(controller);
 
         mainFrame.setContentPane(homeWindow.homePanel);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,6 +25,8 @@ public class Main {
         homeWindow.showInventory(mainFrame, inventoryWindow);
         homeWindow.showUsers(mainFrame, userWindow);
         homeWindow.showMaintenance(mainFrame, maintenanceWindow);
+        homeWindow.showIndicators(mainFrame, indicatorWindow);
+        homeWindow.showCalendar(mainFrame, calendarWindow);
         // Inventory menu buttons
         inventoryWindow.showHome(mainFrame, homeWindow);
         inventoryWindow.showUsers(mainFrame, userWindow);
@@ -35,5 +39,11 @@ public class Main {
         maintenanceWindow.showHome(mainFrame, homeWindow);
         maintenanceWindow.showInventory(mainFrame, inventoryWindow);
         maintenanceWindow.showUsers(mainFrame, userWindow);
+        // Indicators menu buttons
+        indicatorWindow.showHome(mainFrame, homeWindow);
+        indicatorWindow.showInventory(mainFrame, inventoryWindow);
+        indicatorWindow.showMaintenance(mainFrame, maintenanceWindow);
+        indicatorWindow.showUsers(mainFrame, userWindow);
+
     }
 }

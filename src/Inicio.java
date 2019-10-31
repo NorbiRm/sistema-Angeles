@@ -10,13 +10,25 @@ public class Inicio {
     private JButton showCalendarButton;
     private JPanel buttonsPanel;
     private JPanel imagePanel;
+    private JButton showIndicatorButton;
     private Controller controller;
 
 
     public Inicio(Controller controller) {
         this.controller = controller;
+
     }
 
+    public void showCalendar(JFrame f, Calendario cal){
+        this.showCalendarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(cal.calendarPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
     public void showInventory( JFrame f, Inventario inv){
         this.showInventoryButton.addActionListener(new ActionListener() {
             @Override
@@ -47,4 +59,15 @@ public class Inicio {
             }
         });
     }
+    public void showIndicators(JFrame f, Indicador ind){
+        showIndicatorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(ind.subPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+
 }
