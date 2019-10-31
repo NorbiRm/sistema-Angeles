@@ -23,10 +23,11 @@ public class RegistroUsuario {
     private JLabel errorLabel;
 
     private Controller controller;
+    private Usuario interfaz_usuario;
 
     public RegistroUsuario(Controller controller){
         this.controller = controller;
-            registerDateLabel.setText("<html><body>Fecha de Registro<br>Formato Dia/Mes/Año</body></html>");
+        registerDateLabel.setText("<html><body>Fecha de Registro<br>Formato Dia/Mes/Año</body></html>");
         this.saveUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,12 +53,16 @@ public class RegistroUsuario {
                     userNameText.setText("");
                     String[] datos_usuario = {userName, userType, userGender, userDate};
                     controller.system.addUsuario(datos_usuario);
+                    interfaz_usuario.userTable.setModel(controller.generateModel(controller.showUsuarios(), controller.cols_usuarios));
                     // CIERRA LA VENTNA
                     JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(registerUserPanel);
                     topFrame.dispose();
                 }
             }
         });
+    }
+    public void setUsuario(Usuario user){
+        this.interfaz_usuario = user;
     }
     private void createUIComponents() {
         registerDateLabel = new JLabel("Text");

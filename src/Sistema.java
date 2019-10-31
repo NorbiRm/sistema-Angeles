@@ -32,6 +32,26 @@ public class Sistema {
         }
     }
 
+    public boolean usuarioExiste(String nombre){
+        for(Usuarios user: this.usuarios){
+            if(user.nombre.toLowerCase().compareTo(nombre.toLowerCase()) == 0 ||
+            user.nombre.toUpperCase().compareTo(nombre) == 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Object[] getUsuarioByName(String nombre){
+        for(Usuarios user: this.usuarios){
+            if(user.nombre.toLowerCase().compareTo(nombre.toLowerCase()) == 0 ||
+                    user.nombre.toUpperCase().compareTo(nombre) == 0){
+                return user.getAsRow();
+            }
+        }
+        return null;
+    }
+
     public void modifyUsuario(int index, Object[] new_data){
         this.usuarios.remove(index);
         this.usuarios.add(index, new Usuarios(new_data));
