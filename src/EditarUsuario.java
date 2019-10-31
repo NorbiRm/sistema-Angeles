@@ -25,9 +25,11 @@ public class EditarUsuario {
 
     private Controller controller;
     private String[] userNames;
+    private int index_user;
 
     public EditarUsuario( Controller controller ){
         this.controller = controller;
+        this.index_user = -1;
 
         registerDateLabel.setText("<html><body>Fecha de Registro<br>Formato Dia/Mes/Año</body></html>");
 
@@ -38,6 +40,7 @@ public class EditarUsuario {
                 String selectedUser = selectedUserObj.toString();
                 for(int i = 0; i < controller.system.usuarios.size(); i++){
                     if(controller.system.usuarios.get(i).nombre.equals(selectedUser)){
+                        index_user = i;
                         userNameText.setText(controller.system.usuarios.get(i).nombre);
                         registerDateText.setText(controller.system.usuarios.get(i).fecha_registro);
                         int valT = (controller.system.usuarios.get(i).puesto.equals("Pasante")) ? 0 : 1;
@@ -48,10 +51,28 @@ public class EditarUsuario {
                 }
             }
         });
+        saveUserButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(index_user != -1){
+                    String nombre = userNameText.getText();
+                    String puesto = (String)userTypeSelect.getSelectedItem();
+                    String genero = (String)userGenderSelect.getSelectedItem();
+                    String fecha = registerDateText.getText();
+                    // PARSEAR FECHA
+                    Object[] new_data = {nombre, puesto, genero, fecha};
+                    controller.system.modifyUsuario(index_user, new_data);
+                    // CIERRA LA VENTNA
+                    JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(editUserPanel);
+                    topFrame.dispose();
+                }
+
+            }
+        });
     }
 
     private void createUIComponents() {
-        DateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        DateFormat format = new SimpleDateFormat("dd/mm/yyyy");;
         format.setLenient(false);
         registerDateText = new JFormattedTextField(format);
         registerDateText.setColumns(10);

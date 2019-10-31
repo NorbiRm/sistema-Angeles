@@ -32,6 +32,11 @@ public class Sistema {
         }
     }
 
+    public void modifyUsuario(int index, Object[] new_data){
+        this.usuarios.remove(index);
+        this.usuarios.add(index, new Usuarios(new_data));
+    }
+
     public boolean addServicio(Object[] row){
         Servicio nuevo_servicio = new Servicio(row);
         try{

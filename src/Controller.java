@@ -41,12 +41,9 @@ public class Controller {
         ArrayList<Equipo> equipos = new ArrayList<>();
         ArrayList<Object[]> rows_equipos;
         rows_equipos = loadSheet("EQUIPO", this.cols_equipos, this.cols_equipos.length);
-        Equipo equipo;
-        //System.out.println("Va a crear equipos");
         for(Object[] row: rows_equipos) {
             if(!rowIsNull(row)){
-                equipo = new Equipo(row);
-                equipos.add(equipo);
+                equipos.add(new Equipo(row));
             }
         }
         return equipos;
@@ -56,28 +53,21 @@ public class Controller {
         ArrayList<Usuarios> usuarios = new ArrayList<>();
         ArrayList<Object[]> rows_usuarios;
         rows_usuarios = loadSheet("USUARIOS", this.cols_usuarios, this.cols_usuarios.length);
-        Usuario usuario;
         for(Object[] row: rows_usuarios){
             usuarios.add(new Usuarios(row));
         }
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!USUARIOS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(usuarios.size());
         return usuarios;
     }
 
     public ArrayList<Servicio> getMantenimientos(){
         ArrayList<Servicio> servicios = new ArrayList<>();
         ArrayList<Object[]> rows_servicios;
-        Servicio servicio;
         rows_servicios = loadSheet("MANTENIMIENTO", this.cols_servicios, this.cols_servicios.length);
         for(Object[] row: rows_servicios){
             if(!rowIsNull(row)){
-                servicio = new Servicio(row);
-                servicios.add(servicio);
+                servicios.add(new Servicio(row));
             }
         }
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!SERVICIOS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(servicios.size());
         return servicios;
     }
 
@@ -141,17 +131,7 @@ public class Controller {
         }*/
     }
 
-    public void addUser(Object[] data){
-        try{
-            Object[] wb_config = loadWB();
 
-        } catch (IOException e){
-
-        }catch (Exception e){
-
-        }
-
-    }
 
     //public DefaultTableModel loadSheet
     public ArrayList<Object[]> loadSheet(String sheet_name, String[] columns, int num_columns){

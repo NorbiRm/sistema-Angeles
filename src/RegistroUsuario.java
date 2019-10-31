@@ -37,7 +37,7 @@ public class RegistroUsuario {
                 String[] dateData = userDate.split("/", 3);
                 Object userTypeObj = userTypeSelect.getSelectedItem();
                 String userType = userTypeObj.toString();
-                Object userGenderObj = userTypeSelect.getSelectedItem();
+                Object userGenderObj = userGenderSelect.getSelectedItem();
                 String userGender = userGenderObj.toString();
                 if(userType.equals("") || userName.equals("") || userGender.equals("")){
                     errorLabel.setText("Llene todos los campos");

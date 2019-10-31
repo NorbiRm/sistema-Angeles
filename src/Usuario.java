@@ -20,7 +20,6 @@ public class Usuario {
     private JButton updateUser;
     private JPanel titlePanel;
     private JButton searchUserButton;
-    private JComboBox filterUserType;
     private JButton deleteUser;
     private JFormattedTextField searchUserField;
     private JButton refrescarTablaButton;
