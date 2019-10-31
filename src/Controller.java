@@ -4,7 +4,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Sheet;
 import sun.net.www.content.text.Generic;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.*;
@@ -110,7 +109,7 @@ public class Controller {
     }
 
     private Object[] loadWB() throws IOException{
-        String file_path = "src/Datos3.xlsx";
+        String file_path = "src/Datos.xlsx";
         FileInputStream root_excel = new FileInputStream(new File(file_path));
 
         //System.out.println("Se carga el archivo");

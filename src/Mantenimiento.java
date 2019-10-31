@@ -31,32 +31,36 @@ public class Mantenimiento {
     public Mantenimiento(Controller controller) {
         this.controller = controller;
 
-        String header[] = {"Folio","Número Control", "Número Serie", "Equipo", "Marca", "Modelo","Fecha Solicitud", "Fecha Terminación", "Área", "Falla", "Trabajo Realizado", "Partes Nuevas", "Costo Refacciones", "Costo Servicio Externo", "Costo Total"};
-        String header_completo[] = controller.cols_servicios;
-        Object[][] data = controller.showServicios();
-        DefaultTableModel model = new DefaultTableModel(data, header) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                //all cells false
-                return false;
-            }
-        };
-        maintTable.setModel(model);
+        maintTable.setModel(generateModel(true));
         Color backColor = new Color(47,84,150);
         maintTable.getTableHeader().setFont(new Font("Calibri", Font.BOLD, 18));
         maintTable.getTableHeader().setReorderingAllowed(false);
         maintTable.getTableHeader().setBackground(backColor);
         maintTable.getTableHeader().setForeground(Color.white);
+
         viewFullTable.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(viewFullTable.getText().compareTo("Ver Tabla Completa") == 0){
-                    maintTable.setModel(new DefaultTableModel(data, header_completo));
+                    maintTable.setModel(generateModel(false));
                     viewFullTable.setText("Ver Tabla Reducida");
                 }else{
-                    maintTable.setModel(new DefaultTableModel(data, header));
+                    maintTable.setModel(generateModel(true));
                     viewFullTable.setText("Ver Tabla Completa");
                 }
+            }
+        });
+
+        this.generateOrder.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                OrdenDeServicio form = new OrdenDeServicio(controller);
+                JFrame mainFrame = new JFrame("Nueva Orden de Servicio");
+                mainFrame.setContentPane(form.serviceOrderPanel);
+                mainFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                mainFrame.setSize(900, 600);
+                mainFrame.setResizable(false);
+                mainFrame.setVisible(true);
             }
         });
     }
@@ -75,7 +79,6 @@ public class Mantenimiento {
         this.usersButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //f.remove(inicio.panel1);
                 f.setContentPane(user.userPanel);
                 f.revalidate();
                 f.repaint();
@@ -92,19 +95,22 @@ public class Mantenimiento {
             }
         });
     }
-    public void newServiceOrderWindow(OrdenDeServicio form){
-        this.generateOrder.addActionListener(new ActionListener() {
+
+    private DefaultTableModel generateModel(Boolean isShort){
+        String header[] = {"Folio","Número Control", "Número Serie", "Equipo", "Marca", "Modelo","Fecha Solicitud", "Fecha Terminación", "Área", "Falla", "Trabajo Realizado", "Partes Nuevas", "Costo Refacciones", "Costo Servicio Externo", "Costo Total"};
+        String header_completo[] = controller.cols_servicios;
+        Object[][] data = controller.showServicios();
+        String[] headers = isShort ? header : header_completo;
+        DefaultTableModel model = new DefaultTableModel(data, headers) {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame mainFrame = new JFrame("Nueva Orden de Servicio");
-                mainFrame.setContentPane(form.serviceOrderPanel);
-                mainFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                mainFrame.setSize(900, 600);
-                mainFrame.setResizable(false);
-                mainFrame.setVisible(true);
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
             }
-        });
+        };
+        return model;
     }
+
 
 
 }

@@ -137,7 +137,7 @@
           <font size="18"/>
           <foreground color="-1"/>
           <opaque value="true"/>
-          <text value="Actualizar Datos"/>
+          <text value="Actualizar Equipo"/>
         </properties>
       </component>
       <component id="f65d3" class="javax.swing.JButton" binding="deleteEquipment">

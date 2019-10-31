@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="registerEquipmentPanel" layout-manager="GridLayoutManager" row-count="14" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="800" height="605"/>
+      <xy x="20" y="20" width="861" height="614"/>
     </constraints>
     <properties>
       <background color="-1"/>
@@ -156,10 +156,30 @@
         </constraints>
         <properties>
           <model>
-            <item value="Apoyo Respiratorio"/>
-            <item value="A"/>
-            <item value="B"/>
-            <item value="C"/>
+            <item value="Alamacen y Subalmacenes"/>
+            <item value="CEyE"/>
+            <item value="Cuarto de Maquinas"/>
+            <item value="Cunero"/>
+            <item value="Endoscopia"/>
+            <item value="Farmacia, Flores y Regalos"/>
+            <item value="Farmacia, Hospitalizacion"/>
+            <item value="Hemodialisis"/>
+            <item value="Hemodialisis"/>
+            <item value="Hospitalizacion Segudo Piso"/>
+            <item value="Hospitalizacion Tercer Piso"/>
+            <item value="Imagen"/>
+            <item value="Ingenieria Biomedica"/>
+            <item value="Labor"/>
+            <item value="Medicina Nuclear"/>
+            <item value="Morgue"/>
+            <item value="Oncologia"/>
+            <item value="Policlinica"/>
+            <item value="Quirofano Central"/>
+            <item value="Radioterapia"/>
+            <item value="Rehabilitacion Fisica"/>
+            <item value="Terapia Intensiva"/>
+            <item value="Terapia Intermedia"/>
+            <item value="Urgencias"/>
           </model>
         </properties>
       </component>
@@ -285,8 +305,8 @@
         </constraints>
         <properties>
           <model>
-            <item value="Nuevo"/>
-            <item value="Viejo"/>
+            <item value="Operativo"/>
+            <item value="Inoperativo"/>
           </model>
         </properties>
       </component>
@@ -334,9 +354,10 @@
         </constraints>
         <properties>
           <model>
-            <item value="Piso 2"/>
-            <item value="Piso 1"/>
             <item value="Planta Baja"/>
+            <item value="Piso 1"/>
+            <item value="Piso 2"/>
+            <item value="Piso 3"/>
           </model>
         </properties>
       </component>
@@ -373,9 +394,10 @@
         </constraints>
         <properties>
           <model>
-            <item value="6 meses"/>
-            <item value="3 meses"/>
             <item value="1 mes"/>
+            <item value="12 meses"/>
+            <item value="3 meses"/>
+            <item value="6 meses"/>
           </model>
         </properties>
       </component>

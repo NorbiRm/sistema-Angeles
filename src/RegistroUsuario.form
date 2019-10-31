@@ -103,9 +103,9 @@
           </grid>
         </constraints>
         <properties>
-          <font name="Calibri" size="18"/>
+          <font name="Calibri" size="14"/>
           <foreground color="-13675370"/>
-          <text value="&quot;&lt;html&gt;&lt;body&gt;with&lt;br&gt;linebreak&lt;/body&gt;&lt;/html&gt;&quot;"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="cbfc7" class="javax.swing.JTextField" binding="userNameText">

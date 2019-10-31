@@ -21,7 +21,6 @@ public class Inicio {
         this.showInventoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //f.remove(inicio.panel1);
                 f.setContentPane(inv.invPanel);
                 f.revalidate();
                 f.repaint();
@@ -42,7 +41,6 @@ public class Inicio {
         this.showUsersButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //f.remove(inicio.panel1);
                 f.setContentPane(user.userPanel);
                 f.revalidate();
                 f.repaint();

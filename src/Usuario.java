@@ -3,12 +3,13 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Usuario {
     //Root Panel
     public JPanel userPanel;
     // Data Table
-    private JTable userTable;
+    public JTable userTable;
     // Menu Buttons
     private JButton homeMenuButton;
     private JButton inventoryMenuButton;
@@ -22,28 +23,71 @@ public class Usuario {
     private JComboBox filterUserType;
     private JButton deleteUser;
     private JFormattedTextField searchUserField;
+    private JButton refrescarTablaButton;
+
+    //public DefaultTableModel model;
 
     private Controller controller;
 
-    public Usuario(Controller controller) {
+    public Usuario(Controller controller){
         this.controller = controller;
 
-        String header[] = {"Nombre", "Puesto", "Genero", "Fecha de Registro"};
-        String header_completo[] = controller.cols_usuarios;
-        Object[][] data = controller.showUsuarios();
-        DefaultTableModel model = new DefaultTableModel(data, header) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                //all cells false
-                return false;
-            }
-        };
-        userTable.setModel(model);
+        userTable.setModel(generateModel());
         Color backColor = new Color(47,84,150);
         userTable.getTableHeader().setReorderingAllowed(false);
         userTable.getTableHeader().setBackground(backColor);
         userTable.getTableHeader().setForeground(Color.white);
+
+        this.refrescarTablaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                userTable.setModel(generateModel());
+            }
+        });
+
+        this.deleteUser.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EliminarUsuario form = new EliminarUsuario(controller);
+                JFrame mainFrame = new JFrame("Eliminar Usuario");
+                mainFrame.setContentPane(form.deleteUserPanel);
+                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                mainFrame.setSize(800, 500);
+                mainFrame.setResizable(false);
+                mainFrame.setVisible(true);
+                mainFrame.revalidate();
+            }
+        });
+
+        this.updateUser.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditarUsuario edit = new EditarUsuario(controller);
+                JFrame mainFrame = new JFrame("Editar Usuario");
+                mainFrame.setContentPane(edit.editUserPanel);
+                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                mainFrame.setSize(800, 500);
+                mainFrame.setResizable(false);
+                mainFrame.setVisible(true);
+                mainFrame.revalidate();
+            }
+        });
+
+        this.addUser.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RegistroUsuario form = new RegistroUsuario(controller);
+                JFrame mainFrame = new JFrame("Registrar Nuevo Usuario");
+                mainFrame.setContentPane(form.registerUserPanel);
+                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                mainFrame.setSize(900, 600);
+                mainFrame.setResizable(false);
+                mainFrame.setVisible(true);
+            }
+        });
+
     }
+
 
     public void showHome(JFrame f, Inicio home){
         this.homeMenuButton.addActionListener(new ActionListener() {
@@ -75,30 +119,18 @@ public class Usuario {
             }
         });
     }
-    public void newUserWindow(RegistroUsuario form){
-        this.addUser.addActionListener(new ActionListener() {
+
+    private DefaultTableModel generateModel(){
+        String[] header = {"Nombre", "Puesto", "Genero", "Fecha de Registro"};
+        Object[][] data = controller.showUsuarios();
+        DefaultTableModel model = new DefaultTableModel(data, header) {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame mainFrame = new JFrame("Registrar Nuevo Usuario");
-                mainFrame.setContentPane(form.registerUserPanel);
-                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                mainFrame.setSize(900, 600);
-                mainFrame.setResizable(false);
-                mainFrame.setVisible(true);
+            public boolean isCellEditable(int row, int column) {
+                return false;
             }
-        });
+        };
+        return model;
     }
-    /*public void deleteUserWindow(EliminarUsuario form){
-        this.deleteUser.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame mainFrame = new JFrame("Eliminar Usuario");
-                mainFrame.setContentPane(form.deleteUserPanel);
-                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                mainFrame.setSize(800, 500);
-                mainFrame.setResizable(false);
-                mainFrame.setVisible(true);
-            }
-        });
-    }*/
+
+
 }

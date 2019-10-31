@@ -33,33 +33,60 @@ public class Inventario {
     public Inventario(Controller controller) {
         this.controller = controller;
 
-        String header[] = {"Numero Control", "Equipo", "Marca", "Modelo", "Numero de Serie", "Area", "Proveedor de Compra"};
-        String header_completo[] = controller.cols_equipos;
-        //Object[][] data = new Object[][];
-        Object[][] data = controller.showEquipo();
-        DefaultTableModel model = new DefaultTableModel(data, header) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                //all cells false
-                return false;
-            }
-        };
-        inventoryTable.setModel(model);
+        inventoryTable.setModel(generateModel(true));
         Color backColor = new Color(47,84,150);
         inventoryTable.getTableHeader().setFont(new Font("Calibri", Font.BOLD, 18));
         inventoryTable.getTableHeader().setReorderingAllowed(false);
         inventoryTable.getTableHeader().setBackground(backColor);
         inventoryTable.getTableHeader().setForeground(Color.white);
+
         viewFullTable.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(viewFullTable.getText().compareTo("Ver Tabla Completa") == 0){
-                    inventoryTable.setModel(new DefaultTableModel(data, header_completo));
+                    inventoryTable.setModel(generateModel(false));
                     viewFullTable.setText("Ver Tabla Reducida");
                 }else{
-                    inventoryTable.setModel(new DefaultTableModel(data, header));
+                    inventoryTable.setModel(generateModel(true));
                     viewFullTable.setText("Ver Tabla Completa");
                 }
+            }
+        });
+
+        this.addEquipment.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RegistroEquipo form = new RegistroEquipo(controller);
+                JFrame mainFrame = new JFrame("Registrar Nuevo Equipo");
+                mainFrame.setContentPane(form.registerEquipmentPanel);
+                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                mainFrame.setSize(900, 600);
+                mainFrame.setResizable(false);
+                mainFrame.setVisible(true);
+            }
+        });
+        updateEquipment.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditarEquipo form = new EditarEquipo(controller);
+                JFrame mainFrame = new JFrame("Actualizar Equipo");
+                mainFrame.setContentPane(form.editEquipmentPanel);
+                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                mainFrame.setSize(1000, 600);
+                mainFrame.setResizable(false);
+                mainFrame.setVisible(true);
+            }
+        });
+        deleteEquipment.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EliminarEquipo form = new EliminarEquipo(controller);
+                JFrame mainFrame = new JFrame("Eliminar Equipo");
+                mainFrame.setContentPane(form.deleteEquipmentPanel);
+                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                mainFrame.setSize(900, 600);
+                mainFrame.setResizable(false);
+                mainFrame.setVisible(true);
             }
         });
     }
@@ -74,7 +101,7 @@ public class Inventario {
             }
         });
     }
-    public void showMaintenance( JFrame f, Mantenimiento maint){
+    public void showMaintenance(JFrame f, Mantenimiento maint){
         this.maintenanceMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,26 +115,30 @@ public class Inventario {
         this.usersMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //f.remove(inicio.panel1);
                 f.setContentPane(user.userPanel);
                 f.revalidate();
                 f.repaint();
             }
         });
     }
-    public void newEquipmentWindow(RegistroEquipo form){
-        this.addEquipment.addActionListener(new ActionListener() {
+
+    private DefaultTableModel generateModel(Boolean isShort){
+        String[] header = {"Numero Control", "Equipo", "Marca", "Modelo", "Numero de Serie", "Area", "Proveedor de Compra"};
+        String[] header_completo = controller.cols_equipos;
+        Object[][] data = controller.showEquipo();
+        String[] headers = isShort ? header : header_completo;
+        DefaultTableModel model = new DefaultTableModel(data, headers) {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame mainFrame = new JFrame("Registrar Nuevo Equipo");
-                mainFrame.setContentPane(form.registerEquipmentPanel);
-                mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                mainFrame.setSize(900, 600);
-                mainFrame.setResizable(false);
-                mainFrame.setVisible(true);
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
             }
-        });
+        };
+        return model;
     }
+
+
+
 
 
 }
