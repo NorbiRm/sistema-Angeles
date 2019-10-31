@@ -47,6 +47,7 @@ public class Usuario {
             @Override
             public void actionPerformed(ActionEvent e) {
                 EliminarUsuario form = new EliminarUsuario(controller);
+                form.setInterfaz_usuario(self);
                 JFrame mainFrame = new JFrame("Eliminar Usuario");
                 mainFrame.setContentPane(form.deleteUserPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -61,6 +62,7 @@ public class Usuario {
             @Override
             public void actionPerformed(ActionEvent e) {
                 EditarUsuario edit = new EditarUsuario(controller);
+                edit.setInterfaz_usuario(self);
                 JFrame mainFrame = new JFrame("Editar Usuario");
                 mainFrame.setContentPane(edit.editUserPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -75,7 +77,7 @@ public class Usuario {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RegistroUsuario form = new RegistroUsuario(controller);
-                form.setUsuario(self);
+                form.setInterfaz_usuario(self);
                 JFrame mainFrame = new JFrame("Registrar Nuevo Usuario");
                 mainFrame.setContentPane(form.registerUserPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

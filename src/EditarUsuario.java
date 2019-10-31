@@ -25,6 +25,7 @@ public class EditarUsuario {
 
     private Controller controller;
     private String[] userNames;
+    private Usuario interfaz_usuario;
     private int index_user;
 
     public EditarUsuario( Controller controller ){
@@ -62,6 +63,7 @@ public class EditarUsuario {
                     // PARSEAR FECHA
                     Object[] new_data = {nombre, puesto, genero, fecha};
                     controller.system.modifyUsuario(index_user, new_data);
+                    interfaz_usuario.userTable.setModel(controller.generateModel(controller.showUsuarios(), controller.cols_usuarios));
                     // CIERRA LA VENTNA
                     JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(editUserPanel);
                     topFrame.dispose();
@@ -69,6 +71,10 @@ public class EditarUsuario {
 
             }
         });
+    }
+
+    public void setInterfaz_usuario(Usuario usuario){
+        this.interfaz_usuario = usuario;
     }
 
     private void createUIComponents() {

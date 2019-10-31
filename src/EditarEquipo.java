@@ -49,9 +49,12 @@ public class EditarEquipo {
     private JLabel errorLabel;
 
     private Controller controller;
+    private Inventario interfaz_inv;
+    private int index_equipo;
 
     public EditarEquipo(Controller controller){
         this.controller = controller;
+        this.index_equipo = -1;
 
         searchButton.addActionListener(new ActionListener() {
             @Override
@@ -62,6 +65,7 @@ public class EditarEquipo {
                 System.out.println("Busca: " + controlNumberSearch);
                 for(int i = 0; i < equipos.size(); i++){
                     if(equipos.get(i).num_control.equals(controlNumberSearch)){
+                        index_equipo = i;
                         textEquipment.setText(equipos.get(i).equipo);
                         textBrand.setText(equipos.get(i).marca);
                         textModel.setText(equipos.get(i).modelo);
@@ -121,13 +125,22 @@ public class EditarEquipo {
                 else{
                     errorLabel.setText("");
                     //EDITAR EQUIPO
-
-                    // CIERRA LA VENTNA
+                    Object[] new_data = {equipmentControlN, equipmentName, equipmentBrand, equipmentModel, equipmentSerialNumber,
+                                         equipmentArea, equipmentProviderB, equipmentAccessories, equipmentAssetNum, equipmentLocation,
+                                         equipmentDate, equipmentState, equipmentServiceProvider, equipmentContact, equipmentTelephone,
+                                         equipmentReplacementParts, "",""};
+                    controller.system.modifyEquipo(index_equipo, new_data);
+                    String[] header = {"Numero Control", "Equipo", "Marca", "Modelo", "Numero de Serie", "Area", "Proveedor de Compra"};
+                    interfaz_inv.inventoryTable.setModel(controller.generateModel(controller.showEquipo(), header));
+                    // CIERRA LA VENTANA
                     JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(editEquipmentPanel);
                     topFrame.dispose();
                 }
 
             }
         });
+    }
+    public void setinterfaz_inv(Inventario inventario){
+        this.interfaz_inv = inventario;
     }
 }

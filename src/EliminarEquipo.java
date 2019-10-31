@@ -29,9 +29,12 @@ public class EliminarEquipo {
     private JLabel errorLabel;
 
     private Controller controller;
+    private Inventario interfaz_inv;
+    private int index_equipo;
 
     public EliminarEquipo(Controller controller){
         this.controller = controller;
+        this.index_equipo = -1;
         deleteSearchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,6 +43,7 @@ public class EliminarEquipo {
                 equipos = controller.system.equipos;
                 for(int i = 0; i < equipos.size(); i++){
                     if(equipos.get(i).num_control.equals(controlNumberSearch)){
+                        index_equipo = i;
                         textEquipment.setText(equipos.get(i).equipo);
                         textBrand.setText(equipos.get(i).marca);
                         textModel.setText(equipos.get(i).modelo);
@@ -60,6 +64,26 @@ public class EliminarEquipo {
             }
         });
 
+        submitDeleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String[] header = {"Numero Control", "Equipo", "Marca", "Modelo", "Numero de Serie", "Area", "Proveedor de Compra"};
+                //String selected = textControlNumber.getText().toString();
+                if(index_equipo != -1){
+                    System.out.println("Deleted user : " + controller.system.equipos.get(index_equipo).num_control);
+                    controller.system.equipos.remove(index_equipo);
+                    interfaz_inv.inventoryTable.setModel(controller.generateModel(controller.showEquipo(), header));
+                    index_equipo = -1;
+                }
+                // CERRAR VENTANA
+                JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(deleteEquipmentPanel);
+                topFrame.dispose();
+            }
+        });
     }
+    public void setinterfaz_inv(Inventario inventario){
+        this.interfaz_inv = inventario;
+    }
+
 
 }

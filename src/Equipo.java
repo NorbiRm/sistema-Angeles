@@ -19,6 +19,7 @@ public class Equipo {
     public ArrayList<String> refacciones;
     public ArrayList<String> consumibles;
     public ArrayList<String> frecuencia; //CHECAR
+    public String prox_mantto;
 
     public Equipo(Object[] atts){
         this.num_control = (String) atts[0];
@@ -39,6 +40,7 @@ public class Equipo {
         this.refacciones = new ArrayList<>();
         this.consumibles = new ArrayList<>();
         this.frecuencia = new ArrayList<>();
+        this.prox_mantto = "";
     }
 
     public Equipo(String num_control, String equipo, String marca, String modelo, String num_serie, String area, String proveedor_compra, ArrayList<String> accesorios, String num_flujo, String ubicacion, String fecha_instalacion, String estado, String proveedor_serv, String contacto, String telefono, ArrayList<String> refacciones, ArrayList<String> consumibles, ArrayList<String> frecuencia) {
@@ -60,6 +62,7 @@ public class Equipo {
         this.refacciones = refacciones;
         this.consumibles = consumibles;
         this.frecuencia = frecuencia;
+        this.prox_mantto = "";
     }
 
     public Object[] getAsRow(){

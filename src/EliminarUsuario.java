@@ -19,8 +19,12 @@ public class EliminarUsuario {
     private String[] userNames;
     private Controller controller;
 
+    private Usuario interfaz_usuario;
+    private int index_usuario;
+
     public EliminarUsuario( Controller controller){
         this.controller = controller;
+        this.index_usuario = -1;
         this.deleteUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -28,9 +32,12 @@ public class EliminarUsuario {
                 String selectedUser = selectedUserObj.toString();
                 for(int i = 0; i < controller.system.usuarios.size(); i++){
                     if(controller.system.usuarios.get(i).nombre.equals(selectedUser)){
+                        index_usuario = i;
                         System.out.println("Deleted user : " + controller.system.usuarios.get(i).nombre);
                         //ELIMINAR USUARIO
-                        controller.system.usuarios.remove(i);
+                        controller.system.usuarios.remove(index_usuario);
+                        interfaz_usuario.userTable.setModel(controller.generateModel(controller.showUsuarios(), controller.cols_usuarios));
+
                         comboBoxUser.removeItemAt(i);
                     }
 
@@ -40,6 +47,9 @@ public class EliminarUsuario {
                 topFrame.dispose();
             }
         });
+    }
+    public void setInterfaz_usuario(Usuario usuario){
+        this.interfaz_usuario = usuario;
     }
 
     private void createUIComponents() {

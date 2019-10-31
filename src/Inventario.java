@@ -9,7 +9,7 @@ public class Inventario {
     // Root Panel
     public JPanel invPanel;
     // Data Table
-    private JTable inventoryTable;
+    public JTable inventoryTable;
     // Menu Buttons
     private JPanel titlePanel;
     private JButton homeMenuButton;
@@ -32,7 +32,7 @@ public class Inventario {
 
     public Inventario(Controller controller) {
         this.controller = controller;
-
+        Inventario self = this;
         inventoryTable.setModel(generateModel(true));
         Color backColor = new Color(47,84,150);
         inventoryTable.getTableHeader().setFont(new Font("Calibri", Font.BOLD, 18));
@@ -57,6 +57,7 @@ public class Inventario {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RegistroEquipo form = new RegistroEquipo(controller);
+                form.setinterfaz_inv(self);
                 JFrame mainFrame = new JFrame("Registrar Nuevo Equipo");
                 mainFrame.setContentPane(form.registerEquipmentPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -69,6 +70,7 @@ public class Inventario {
             @Override
             public void actionPerformed(ActionEvent e) {
                 EditarEquipo form = new EditarEquipo(controller);
+                form.setinterfaz_inv(self);
                 JFrame mainFrame = new JFrame("Actualizar Equipo");
                 mainFrame.setContentPane(form.editEquipmentPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -81,12 +83,31 @@ public class Inventario {
             @Override
             public void actionPerformed(ActionEvent e) {
                 EliminarEquipo form = new EliminarEquipo(controller);
+                form.setinterfaz_inv(self);
                 JFrame mainFrame = new JFrame("Eliminar Equipo");
                 mainFrame.setContentPane(form.deleteEquipmentPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 mainFrame.setSize(900, 600);
                 mainFrame.setResizable(false);
                 mainFrame.setVisible(true);
+            }
+        });
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String filter_field = searchEquipmentTextField.getText();
+                String filter = filterColumn.getSelectedItem().toString();
+                if(filter_field!=null && !filter_field.equals("")){
+                    String[] header = {"Numero Control", "Equipo", "Marca", "Modelo", "Numero de Serie", "Area", "Proveedor de Compra"};
+                    Object[][] data = controller.system.getEquipoByFilter(filter,filter_field);
+                    DefaultTableModel model = new DefaultTableModel(data, header) {
+                        @Override
+                        public boolean isCellEditable(int row, int column) {
+                            return false;
+                        }
+                    };
+                    inventoryTable.setModel(model);
+                }
             }
         });
     }

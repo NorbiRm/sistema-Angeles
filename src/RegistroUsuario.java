@@ -61,7 +61,7 @@ public class RegistroUsuario {
             }
         });
     }
-    public void setUsuario(Usuario user){
+    public void setInterfaz_usuario(Usuario user){
         this.interfaz_usuario = user;
     }
     private void createUIComponents() {

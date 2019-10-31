@@ -22,6 +22,49 @@ public class Sistema {
         }
     }
 
+    public boolean equipoExiste(String nombre){
+        for(Equipo equipo: this.equipos){
+            if(equipo.num_control.toLowerCase().compareTo(nombre.toLowerCase()) == 0 ||
+                    equipo.num_control.toUpperCase().compareTo(nombre) == 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public void modifyEquipo(int index, Object[] new_data){
+        this.equipos.remove(index);
+        this.equipos.add(index, new Equipo(new_data));
+    }
+
+    public Object[][] getEquipoByFilter(String filter, String lookup){
+        Object[][] mappedAtts = {
+                {1, "Equipo"}, {2, "Marca"}, {3, "Modelo"}, {4, "Area"}
+        };
+        int index_att = -1;
+        for(Object[] att: mappedAtts){
+            if(att[1] == filter){
+                index_att = (int)att[0];
+            }
+        }
+        //ArrayList<Object[]> results = new ArrayList<>();
+        Object[][] results = new Object[999][];
+        int cont = 0;
+        if(index_att != -1){
+            for(Equipo equipo: equipos){
+                Object[] e = equipo.getAsRow();
+                if(e[index_att].toString().toLowerCase().contains(lookup.toLowerCase()) ||
+                        e[index_att].toString().toUpperCase().contains(lookup.toUpperCase())){
+                    results[cont] = e;
+                    cont++;
+                }
+            }
+        }
+
+        return results.length>0? results: null;
+    }
+
     public boolean addUsuario(Object[] row){
         Usuarios nuevo_usuario = new Usuarios(row);
         try{

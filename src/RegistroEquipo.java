@@ -49,6 +49,7 @@ public class RegistroEquipo {
     private JTextField textProvider;
     private JLabel errorLabel;
     private Controller controller;
+    private Inventario interfaz_inv;
 
     public RegistroEquipo(Controller controller){
         this.controller = controller;
@@ -83,7 +84,13 @@ public class RegistroEquipo {
                 else{
                     errorLabel.setText("");
                     // CREAR NUEVO EQUIPO
-
+                    Object[] new_data = {equipmentControlN, equipmentName, equipmentBrand, equipmentModel, equipmentSerialNumber,
+                            equipmentArea, equipmentProviderB, equipmentAccessories, equipmentAssetNum, equipmentLocation,
+                            equipmentDate, equipmentState, equipmentServiceProvider, equipmentContact, equipmentTelephone,
+                            equipmentReplacementParts, "",""};
+                    controller.system.addEquipo(new_data);
+                    String[] header = {"Numero Control", "Equipo", "Marca", "Modelo", "Numero de Serie", "Area", "Proveedor de Compra"};
+                    interfaz_inv.inventoryTable.setModel(controller.generateModel(controller.showEquipo(), header));
                     // CIERRA LA VENTNA
                     JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(registerEquipmentPanel);
                     topFrame.dispose();
@@ -91,5 +98,9 @@ public class RegistroEquipo {
 
             }
         });
+    }
+
+    public void setinterfaz_inv(Inventario inventario){
+        this.interfaz_inv = inventario;
     }
 }
