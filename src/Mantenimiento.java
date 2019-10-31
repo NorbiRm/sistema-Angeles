@@ -50,30 +50,19 @@ public class Mantenimiento {
                 }
             }
         });
-        generateOrder.addActionListener(new ActionListener() {
+
+        /*this.generateOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                OrdenServicio form = new OrdenServicio(controller);
+                OrdenServicio form = new OrdenServicio();
                 JFrame mainFrame = new JFrame("Nueva Orden de Servicio");
-                mainFrame.setContentPane(form.titleDeleteEquipment);
+                mainFrame.setContentPane(form.serviceOrderPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                mainFrame.setSize(1100, 900);
+                mainFrame.setSize(900, 600);
                 mainFrame.setResizable(false);
                 mainFrame.setVisible(true);
             }
-        });
-        incidentReport.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Incidencia form = new Incidencia();
-                JFrame mainFrame = new JFrame("Nuevo Registro de Incidente");
-                mainFrame.setContentPane(form.incidentPanel);
-                mainFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                mainFrame.setSize(1100, 900);
-                mainFrame.setResizable(false);
-                mainFrame.setVisible(true);
-            }
-        });
+        });*/
     }
 
     public void showHome(JFrame f, Inicio home){
@@ -108,7 +97,7 @@ public class Mantenimiento {
     }
 
     private DefaultTableModel generateModel(Boolean isShort){
-        String header[] = {"Folio","Número Control", "Número Serie", "Equipo", "Marca","Fecha Solicitud", "Fecha Terminación", "Departamento", "Asignado A", "Falla", "Trabajo Realizado", "Partes Nuevas", "Costo Refacciones", "Costo Servicio Externo", "Costo Total"};
+        String header[] = {"Folio","Número Control", "Número Serie", "Equipo", "Marca", "Modelo","Fecha Solicitud", "Fecha Terminación", "Área", "Falla", "Trabajo Realizado", "Partes Nuevas", "Costo Refacciones", "Costo Servicio Externo", "Costo Total"};
         String header_completo[] = controller.cols_servicios;
         Object[][] data = controller.showServicios();
         String[] headers = isShort ? header : header_completo;

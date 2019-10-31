@@ -156,8 +156,7 @@
         </constraints>
         <properties>
           <model>
-            <item value="Almacen y Subalmacenes"/>
-            <item value="Apoyo respiratorio"/>
+            <item value="Alamacen y Subalmacenes"/>
             <item value="CEyE"/>
             <item value="Cuarto de Maquinas"/>
             <item value="Cunero"/>

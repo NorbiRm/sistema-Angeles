@@ -166,9 +166,7 @@
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="7" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties>
-          <background color="-1"/>
-        </properties>
+        <properties/>
         <border type="none"/>
         <children>
           <component id="3db96" class="javax.swing.JTable" binding="maintTable">
@@ -205,7 +203,6 @@
           </grid>
         </constraints>
         <properties>
-          <font name="Calibri" size="14"/>
           <foreground color="-13675370"/>
           <text value=""/>
         </properties>
@@ -219,7 +216,7 @@
         <properties>
           <background color="-1"/>
           <font name="Calibri" size="14"/>
-          <foreground color="-13675370"/>
+          <foreground color="-16777216"/>
           <model>
             <item value="Equipo"/>
             <item value="Marca"/>
@@ -254,11 +251,11 @@
       </component>
       <component id="6a79d" class="javax.swing.JButton" binding="incidentReport">
         <constraints>
-          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-13675370"/>
-          <font name="Calibri" size="18"/>
+          <font size="16"/>
           <foreground color="-1"/>
           <text value="Reporte de Incidencia"/>
         </properties>
