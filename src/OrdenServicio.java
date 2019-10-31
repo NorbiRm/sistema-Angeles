@@ -4,6 +4,10 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.util.ArrayList;
 
 public class OrdenServicio {
@@ -71,7 +75,7 @@ public class OrdenServicio {
     private JLabel brand;
     private JPanel titlePanel;
     private JTextField textBrand;
-    private JButton saveButton2;
+    private JButton saveButton;
     private JTextField textSerialNumber;
     private JLabel controlNumber;
     private JLabel equipment;
@@ -89,6 +93,7 @@ public class OrdenServicio {
     private JComboBox comboBoxReceives;
     private JComboBox comboBoxAsigned;
     private JLabel errorLabel;
+    private JButton imprimirButton;
 
     private Controller controller;
     private String[] userNames;
@@ -129,6 +134,43 @@ public class OrdenServicio {
                     else{
                         errorLabel.setText("");
                     }
+                }
+            }
+        });
+
+
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //GUARDAR ORDEN DE SERVICIO
+            }
+        });
+        imprimirButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PrinterJob job = PrinterJob.getPrinterJob();
+                job.setJobName("Imprimir Orden Servicio");
+                job.setPrintable(new Printable(){
+                    public int print(Graphics pg, PageFormat pf, int pageNum){
+                        pf.setOrientation(PageFormat.LANDSCAPE);
+                        if(pageNum>0){
+                            return Printable.NO_SUCH_PAGE;
+                        }
+                        Graphics2D g2 = (Graphics2D)pg;
+                        g2.translate(pf.getImageableX(), pf.getImageableY());
+                        g2.scale(0.56,0.6);
+
+                        serviceOrderPanel.paint(g2);
+                        return Printable.PAGE_EXISTS;
+                    }
+                });
+                boolean ok = job.printDialog();
+                if(ok){
+                    try{
+
+                        job.print();
+                    }
+                    catch (PrinterException ex){}
                 }
             }
         });
