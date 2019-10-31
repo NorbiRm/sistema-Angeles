@@ -84,7 +84,6 @@
           <model>
             <item value="Masculino"/>
             <item value="Femenino"/>
-            <item value="Otro"/>
           </model>
         </properties>
       </component>

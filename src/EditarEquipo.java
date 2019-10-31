@@ -67,7 +67,7 @@ public class EditarEquipo {
                         textModel.setText(equipos.get(i).modelo);
                         textSerialNumber.setText(equipos.get(i).num_serie);
                         String area = equipos.get(i).area;
-                        for(int contArea = 0; contArea < 24; contArea++){
+                        for(int contArea = 0; contArea < 25; contArea++){
                             if(comboBoxArea.getItemAt(contArea).equals(area)){
                                 comboBoxArea.setSelectedIndex(contArea);
                             }
