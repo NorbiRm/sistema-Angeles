@@ -50,9 +50,11 @@ public class RegistroUsuario {
                     errorLabel.setText("");
                     dateErrorLabel.setText("");
                     userNameText.setText("");
-                    System.out.println(registerDateText.getText());
-                    registerUserPanel.revalidate();
-                    registerUserPanel.repaint();
+                    String[] datos_usuario = {userName, userType, userGender, userDate};
+                    controller.system.addUsuario(datos_usuario);
+                    // CIERRA LA VENTNA
+                    JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(registerUserPanel);
+                    topFrame.dispose();
                 }
             }
         });
