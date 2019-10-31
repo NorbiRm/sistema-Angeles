@@ -26,7 +26,7 @@ public class RegistroUsuario {
 
     public RegistroUsuario(Controller controller){
         this.controller = controller;
-        registerDateLabel.setText("<html><body>Fecha de Registro<br>Formato Dia/Mes/Año</body></html>");
+            registerDateLabel.setText("<html><body>Fecha de Registro<br>Formato Dia/Mes/Año</body></html>");
         this.saveUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

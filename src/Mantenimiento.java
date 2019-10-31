@@ -51,10 +51,10 @@ public class Mantenimiento {
             }
         });
 
-        this.generateOrder.addActionListener(new ActionListener() {
+        /*this.generateOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                OrdenDeServicio form = new OrdenDeServicio(controller);
+                OrdenServicio form = new OrdenServicio();
                 JFrame mainFrame = new JFrame("Nueva Orden de Servicio");
                 mainFrame.setContentPane(form.serviceOrderPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -62,7 +62,7 @@ public class Mantenimiento {
                 mainFrame.setResizable(false);
                 mainFrame.setVisible(true);
             }
-        });
+        });*/
     }
 
     public void showHome(JFrame f, Inicio home){
