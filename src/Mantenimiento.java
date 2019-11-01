@@ -8,7 +8,7 @@ public class Mantenimiento {
     // Root Panel
     public JPanel maintPanel;
     // Data Table
-    private JTable maintTable;
+    public JTable maintTable;
     // Menu Buttons
     private JPanel menuPanel;
     private JButton homeButton;
@@ -30,7 +30,7 @@ public class Mantenimiento {
 
     public Mantenimiento(Controller controller) {
         this.controller = controller;
-
+        Mantenimiento self = this;
         maintTable.setModel(generateModel(true));
         Color backColor = new Color(47,84,150);
         maintTable.getTableHeader().setFont(new Font("Calibri", Font.BOLD, 18));
@@ -55,6 +55,7 @@ public class Mantenimiento {
             @Override
             public void actionPerformed(ActionEvent e) {
                 OrdenServicio form = new OrdenServicio(controller);
+                form.setInterfaz_mantto(self);
                 JFrame mainFrame = new JFrame("Nueva Orden de Servicio");
                 mainFrame.setContentPane(form.mainPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -128,7 +129,7 @@ public class Mantenimiento {
         });
     }
 
-    private DefaultTableModel generateModel(Boolean isShort){
+    public DefaultTableModel generateModel(Boolean isShort){
         String header[] = {"Folio","Número Control", "Número Serie", "Equipo", "Marca", "Modelo","Fecha Solicitud", "Fecha Terminación", "Área", "Falla", "Trabajo Realizado", "Partes Nuevas", "Costo Refacciones", "Costo Servicio Externo", "Costo Total"};
         String header_completo[] = controller.cols_servicios;
         Object[][] data = controller.showServicios();

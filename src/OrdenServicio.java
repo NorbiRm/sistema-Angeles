@@ -100,6 +100,7 @@ public class OrdenServicio {
 
     private Controller controller;
     private String[] userNames;
+    public Mantenimiento interfaz_mantto;
 
     public OrdenServicio(Controller controller){
         this.controller = controller;
@@ -147,11 +148,16 @@ public class OrdenServicio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //GUARDAR ORDEN DE SERVICIO
+                saveServicio();
+                // CIERRA LA VENTNA
+                JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
+                topFrame.dispose();
             }
         });
         imprimirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                saveServicio();
                 PrinterJob job = PrinterJob.getPrinterJob();
                 job.setJobName("Imprimir Orden Servicio");
                 job.setPrintable(new Printable(){
@@ -180,6 +186,31 @@ public class OrdenServicio {
         });
     }
 
+    public void setInterfaz_mantto(Mantenimiento mantto){
+        this.interfaz_mantto = mantto;
+    }
+
+    public void saveServicio(){
+        String folio = "000";
+        String num_control ="";
+        String serie = this.textSerialNumber.getText();
+        String equipo = this.textEquipment.getText();
+        String marca = this.textBrand.getText();
+        String modelo = this.textModel.getText();
+        String fecha_sol = "";
+        String fecha_term = "";
+        String area = "";
+        String falla = this.textReportedFailure.getText();
+        String trabajo = "";
+        String partes = "";
+        String costo = "";
+        String costo_rev ="";
+        String costo_toal = "";
+        String[] datos = {folio, num_control, serie, equipo, marca, modelo, fecha_sol, fecha_term,
+                area, falla, trabajo, partes, costo, costo_rev, costo_toal};
+        controller.system.addServicio(datos);
+        interfaz_mantto.maintTable.setModel(interfaz_mantto.generateModel(true));
+    }
 
     private void createUIComponents() {
         ArrayList<Usuarios> users = new ArrayList<>();
