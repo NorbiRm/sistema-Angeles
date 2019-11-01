@@ -90,6 +90,18 @@ public class EditarEquipo {
                     }
                     else if(!equipos.get(i).num_control.equals(controlNumberSearch)){
                         errorLabel.setText("Equipo no encontrado");
+                        textEquipment.setText("");
+                        textBrand.setText("");
+                        textModel.setText("");
+                        textSerialNumber.setText("");
+                        textProvedor.setText("");
+                        textAccesories.setText("");
+                        textFixAsset.setText("");
+                        textInstallationDate.setText("");
+                        textServiceProvider.setText("");
+                        textContact.setText("");
+                        textTelephone.setText("");
+                        textReplacementParts.setText("");
                     }
                     else{
                         errorLabel.setText("");

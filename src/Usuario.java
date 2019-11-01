@@ -157,7 +157,7 @@ public class Usuario {
         indicatorMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                f.setContentPane(ind.subPanel);
+                f.setContentPane(ind.mainPanel);
                 f.revalidate();
                 f.repaint();
             }

@@ -11,7 +11,7 @@ public class Indicador {
     private JLabel availableEquipment;
     private JLabel labelNumberofBreakdowns;
     private JLabel labelAreasTitle;
-    private JTextField textNumberofBreakdowns;
+    private JTextField textNumberofServices;
     private JTextField textFirst;
     private JTextField textSecond;
     private JProgressBar progressAvailableEquipment;
@@ -35,6 +35,8 @@ public class Indicador {
     private JPanel indicatorsPanel;
     private JButton userMenuButton;
     private JButton recalcularIndicadoresButton;
+    public JPanel mainPanel;
+    private JTextField textNumberOfBreakdowns;
 
     private Controller controller;
 
@@ -67,7 +69,7 @@ public class Indicador {
         servicios = controller.system.mantenimientos;
         int totalServices = servicios.size();
         int preventiveCounter = 0;
-        textNumberofBreakdowns.setText(Integer.toString(totalServices));
+        textNumberofServices.setText(Integer.toString(totalServices));
 
         for(int i = 0; i < totalServices; i++){
             if(servicios.get(i).trabajo_realizado.equals("Mantto. Preventivo")){
@@ -78,9 +80,14 @@ public class Indicador {
         Color c = preventiveCounter > correctiveCounter ? Color.red : Color.BLUE;
         Color c2 = preventiveCounter < correctiveCounter ? Color.red : Color.BLUE;
         textNumberPreventive.setText(Integer.toString(preventiveCounter));
+        int valuePvC = preventiveCounter < correctiveCounter ? correctiveCounter : preventiveCounter;
+        int percentageServices = (valuePvC*100)/totalServices;
+        preventiveVsCorrective.setValue(percentageServices);
+        preventiveVsCorrective.setString(percentageServices + "%");
         textNumberPreventive.setForeground(c);
         textNumberCorrective.setText(Integer.toString(correctiveCounter));
         textNumberCorrective.setForeground(c2);
+        textNumberOfBreakdowns.setText(Integer.toString(correctiveCounter));
     }
 
 

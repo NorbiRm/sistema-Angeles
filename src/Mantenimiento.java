@@ -71,7 +71,7 @@ public class Mantenimiento {
                 JFrame mainFrame = new JFrame("Nuevo Registro de Incidente");
                 mainFrame.setContentPane(form.mainPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                mainFrame.setSize(1280, 900);
+                mainFrame.setSize(1280, 700);
                 mainFrame.setResizable(false);
                 mainFrame.setVisible(true);
             }
@@ -122,7 +122,7 @@ public class Mantenimiento {
         this.indicatorMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                f.setContentPane(ind.subPanel);
+                f.setContentPane(ind.mainPanel);
                 f.revalidate();
                 f.repaint();
             }
