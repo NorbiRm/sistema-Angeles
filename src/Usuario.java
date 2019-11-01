@@ -22,6 +22,7 @@ public class Usuario {
     private JButton deleteUser;
     private JFormattedTextField searchUserField;
     private JButton refrescarTablaButton;
+    private JButton indicatorMenuButton;
 
     //public DefaultTableModel model;
 
@@ -132,11 +133,31 @@ public class Usuario {
             }
         });
     }
+    public void showCalendar(JFrame f, Calendario cal){
+        this.calendarMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(cal.calendarPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
     public void showMaintenance( JFrame f, Mantenimiento maint){
         this.maintenanceMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setContentPane(maint.maintPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+    public void showIndicators(JFrame f, Indicador ind){
+        indicatorMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(ind.subPanel);
                 f.revalidate();
                 f.repaint();
             }

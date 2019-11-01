@@ -1,6 +1,8 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Indicador {
     public JPanel subPanel;
@@ -9,12 +11,9 @@ public class Indicador {
     private JLabel availableEquipment;
     private JLabel labelNumberofBreakdowns;
     private JLabel labelAreasTitle;
-    private JLabel labelFirst;
-    private JLabel labelSecond;
     private JTextField textNumberofBreakdowns;
     private JTextField textFirst;
     private JTextField textSecond;
-    private JLabel labelThird;
     private JProgressBar progressAvailableEquipment;
     private JProgressBar progressBarFirst;
     private JProgressBar progressBarSecond;
@@ -24,8 +23,6 @@ public class Indicador {
     private JTextField textNumberPreventive;
     private JTextField textNumberCorrective;
     private JProgressBar preventiveVsCorrective;
-    private JLabel labelFourth;
-    private JLabel labelFifth;
     private JTextField textThird;
     private JTextField textFourth;
     private JTextField textFifth;
@@ -37,12 +34,56 @@ public class Indicador {
     private JButton calendarMenuButton;
     private JPanel indicatorsPanel;
     private JButton userMenuButton;
+    private JButton recalcularIndicadoresButton;
 
     private Controller controller;
 
     public Indicador(Controller controller){
         this.controller = controller;
+        loadIndicators();
+
+        recalcularIndicadoresButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadIndicators();
+            }
+        });
     }
+    private void loadIndicators(){
+        ArrayList<Equipo> equipos = new ArrayList<>();
+        equipos = controller.system.equipos;
+        int totalEquipments = equipos.size();
+        int operationalCounter = 0;
+        for(int i = 0; i < totalEquipments; i++){
+            if(equipos.get(i).estado.equals("Operativo")){
+                operationalCounter++;
+            }
+        }
+        int percentage = (operationalCounter*100)/totalEquipments;
+        progressAvailableEquipment.setValue(percentage);
+        progressAvailableEquipment.setString(Integer.toString(percentage) + "%");
+
+        ArrayList<Servicio> servicios = new ArrayList<>();
+        servicios = controller.system.mantenimientos;
+        int totalServices = servicios.size();
+        int preventiveCounter = 0;
+        textNumberofBreakdowns.setText(Integer.toString(totalServices));
+
+        for(int i = 0; i < totalServices; i++){
+            if(servicios.get(i).trabajo_realizado.equals("Mantto. Preventivo")){
+                preventiveCounter++;
+            }
+        }
+        int correctiveCounter = totalServices - preventiveCounter;
+        Color c = preventiveCounter > correctiveCounter ? Color.red : Color.BLUE;
+        Color c2 = preventiveCounter < correctiveCounter ? Color.red : Color.BLUE;
+        textNumberPreventive.setText(Integer.toString(preventiveCounter));
+        textNumberPreventive.setForeground(c);
+        textNumberCorrective.setText(Integer.toString(correctiveCounter));
+        textNumberCorrective.setForeground(c2);
+    }
+
+
     public void showHome(JFrame f, Inicio home){
         this.homeMenuButton.addActionListener(new ActionListener() {
             @Override
@@ -68,6 +109,16 @@ public class Indicador {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setContentPane(maint.maintPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+    public void showCalendar(JFrame f, Calendario cal){
+        this.calendarMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(cal.calendarPanel);
                 f.revalidate();
                 f.repaint();
             }

@@ -5,7 +5,9 @@
     <constraints>
       <xy x="12" y="18" width="1399" height="718"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-1"/>
+    </properties>
     <border type="none"/>
     <children>
       <grid id="67306" binding="imagePanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -14,30 +16,33 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-1"/>
           <enabled value="false"/>
           <visible value="true"/>
         </properties>
         <border type="none"/>
         <children>
-          <component id="c1a18" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <enabled value="true"/>
-              <icon value="Img/ImagenInicio.png"/>
-              <text value=""/>
-              <visible value="true"/>
-            </properties>
-          </component>
           <component id="4bac1" class="javax.swing.JLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-1"/>
               <font name="Calibri" size="56" style="1"/>
               <foreground color="-13675370"/>
               <text value="Sistema de Gestión de Equipo"/>
+            </properties>
+          </component>
+          <component id="c1a18" class="javax.swing.JLabel" binding="imgLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <enabled value="true"/>
+              <icon value="Img/ImagenInicio.png"/>
+              <text value=""/>
+              <visible value="true"/>
             </properties>
           </component>
         </children>
@@ -47,7 +52,9 @@
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-1"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="6b236" class="javax.swing.JButton" binding="showMaintenanceButton">

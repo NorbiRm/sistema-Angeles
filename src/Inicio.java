@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,12 +12,12 @@ public class Inicio {
     private JPanel buttonsPanel;
     private JPanel imagePanel;
     private JButton showIndicatorButton;
+    private JLabel imgLabel;
     private Controller controller;
 
 
     public Inicio(Controller controller) {
         this.controller = controller;
-
     }
 
     public void showCalendar(JFrame f, Calendario cal){
@@ -69,5 +70,6 @@ public class Inicio {
             }
         });
     }
+
 
 }

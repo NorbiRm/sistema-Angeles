@@ -3,6 +3,10 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 
 public class Inventario {
 
@@ -26,6 +30,8 @@ public class Inventario {
     private JButton searchButton;
     private JComboBox filterColumn;
     private JTextField searchEquipmentTextField;
+    private JButton indicatorMenuButton;
+    private JPanel tableRoot;
 
     private Controller controller;
 
@@ -110,6 +116,35 @@ public class Inventario {
                 }
             }
         });
+        printTable.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PrinterJob job = PrinterJob.getPrinterJob();
+                job.setJobName("Imprimir Orden Servicio");
+                job.setPrintable(new Printable(){
+                    public int print(Graphics pg, PageFormat pf, int pageNum){
+                        pf.setOrientation(PageFormat.PORTRAIT);
+                        if(pageNum>0){
+                            return Printable.NO_SUCH_PAGE;
+                        }
+                        Graphics2D g2 = (Graphics2D)pg;
+                        g2.translate(pf.getImageableX(), pf.getImageableY());
+                        g2.scale(0.35,0.4);
+
+                        inventoryTable.paint(g2);
+                        return Printable.PAGE_EXISTS;
+                    }
+                });
+                boolean ok = job.printDialog();
+                if(ok){
+                    try{
+
+                        job.print();
+                    }
+                    catch (PrinterException ex){}
+                }
+            }
+        });
     }
 
     public void showHome(JFrame f, Inicio home){
@@ -132,11 +167,32 @@ public class Inventario {
             }
         });
     }
+    public void showCalendar(JFrame f, Calendario cal){
+        this.calendarMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(cal.calendarPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+
     public void showUsers( JFrame f, Usuario user){
         this.usersMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setContentPane(user.userPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+    public void showIndicators(JFrame f, Indicador ind){
+        this.indicatorMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(ind.subPanel);
                 f.revalidate();
                 f.repaint();
             }

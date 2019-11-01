@@ -18,7 +18,8 @@ public class Main {
         mainFrame.setContentPane(homeWindow.homePanel);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
-        mainFrame.setMinimumSize(new Dimension(1000, 700));
+        mainFrame.setState(java.awt.Frame.MAXIMIZED_BOTH);
+        //mainFrame.setMinimumSize(new Dimension(1000, 700));
         mainFrame.setVisible(true);
 
         // Home buttons
@@ -31,19 +32,26 @@ public class Main {
         inventoryWindow.showHome(mainFrame, homeWindow);
         inventoryWindow.showUsers(mainFrame, userWindow);
         inventoryWindow.showMaintenance(mainFrame, maintenanceWindow);
+        inventoryWindow.showCalendar(mainFrame, calendarWindow);
+        inventoryWindow.showIndicators(mainFrame, indicatorWindow);
         // Users menu buttons
         userWindow.showHome(mainFrame, homeWindow);
         userWindow.showInventory(mainFrame, inventoryWindow);
         userWindow.showMaintenance(mainFrame, maintenanceWindow);
+        userWindow.showCalendar(mainFrame, calendarWindow);
+        userWindow.showIndicators(mainFrame, indicatorWindow);
         // Maintenance menu buttons
         maintenanceWindow.showHome(mainFrame, homeWindow);
         maintenanceWindow.showInventory(mainFrame, inventoryWindow);
         maintenanceWindow.showUsers(mainFrame, userWindow);
+        maintenanceWindow.showCalendar(mainFrame, calendarWindow);
+        maintenanceWindow.showIndicators(mainFrame, indicatorWindow);
         // Indicators menu buttons
         indicatorWindow.showHome(mainFrame, homeWindow);
         indicatorWindow.showInventory(mainFrame, inventoryWindow);
         indicatorWindow.showMaintenance(mainFrame, maintenanceWindow);
         indicatorWindow.showUsers(mainFrame, userWindow);
+        indicatorWindow.showCalendar(mainFrame, calendarWindow);
 
     }
 }

@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="c0408" binding="subPanel" layout-manager="GridLayoutManager" row-count="16" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="c0408" binding="subPanel" layout-manager="GridLayoutManager" row-count="19" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -68,12 +68,12 @@
           </grid>
           <hspacer id="696d7">
             <constraints>
-              <grid row="7" column="0" row-span="5" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="0" row-span="6" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
           <component id="29977" class="javax.swing.JLabel" binding="availableEquipment">
             <constraints>
-              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Calibri" size="18"/>
@@ -83,7 +83,7 @@
           </component>
           <component id="c0792" class="javax.swing.JLabel" binding="labelNumberofBreakdowns">
             <constraints>
-              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Calibri" size="18"/>
@@ -93,7 +93,7 @@
           </component>
           <component id="4cdf9" class="javax.swing.JLabel" binding="labelAreasTitle">
             <constraints>
-              <grid row="5" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="7" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Calibri" size="20"/>
@@ -101,67 +101,23 @@
               <text value="Áreas con más averías"/>
             </properties>
           </component>
-          <component id="ca58d" class="javax.swing.JLabel" binding="labelFirst">
-            <constraints>
-              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font name="Calibri" size="18"/>
-              <foreground color="-13675370"/>
-              <text value="Primera"/>
-            </properties>
-          </component>
-          <component id="26638" class="javax.swing.JLabel" binding="labelSecond">
-            <constraints>
-              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font name="Calibri" size="18"/>
-              <foreground color="-13675370"/>
-              <text value="Segunda"/>
-            </properties>
-          </component>
           <component id="fdb8f" class="javax.swing.JTextField" binding="textNumberofBreakdowns">
             <constraints>
-              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="40bdf" class="javax.swing.JTextField" binding="textFirst">
-            <constraints>
-              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
             <properties>
-              <text value="UTI"/>
-            </properties>
-          </component>
-          <component id="af632" class="javax.swing.JTextField" binding="textSecond">
-            <constraints>
-              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <text value="Imagen"/>
-            </properties>
-          </component>
-          <component id="851d5" class="javax.swing.JLabel" binding="labelThird">
-            <constraints>
-              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font name="Calibri" size="18"/>
-              <foreground color="-13675370"/>
-              <text value="Tercera"/>
+              <background color="-2894893"/>
+              <editable value="false"/>
+              <font name="Calibri" size="22" style="1"/>
+              <foreground color="-4516820"/>
+              <text value="35"/>
             </properties>
           </component>
           <component id="c5684" class="javax.swing.JProgressBar" binding="progressAvailableEquipment">
             <constraints>
-              <grid row="3" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1"/>
@@ -174,7 +130,7 @@
           </component>
           <component id="a487d" class="javax.swing.JProgressBar" binding="progressBarFirst">
             <constraints>
-              <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1"/>
@@ -186,7 +142,7 @@
           </component>
           <component id="4ef18" class="javax.swing.JProgressBar" binding="progressBarSecond">
             <constraints>
-              <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1"/>
@@ -198,7 +154,7 @@
           </component>
           <component id="af589" class="javax.swing.JProgressBar" binding="progressBarThird">
             <constraints>
-              <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="10" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1"/>
@@ -210,109 +166,69 @@
           </component>
           <component id="98ef3" class="javax.swing.JLabel" binding="labelPreventive">
             <constraints>
-              <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Calibri" size="16"/>
+              <font name="Calibri" size="18"/>
               <foreground color="-13675370"/>
               <text value="Mantenimientos preventivos"/>
             </properties>
           </component>
           <component id="8b0e9" class="javax.swing.JLabel" binding="labelCorrective">
             <constraints>
-              <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Calibri" size="16"/>
+              <font name="Calibri" size="18"/>
               <foreground color="-13675370"/>
               <text value="Mantenimientos correctivos"/>
             </properties>
           </component>
           <component id="57eb1" class="javax.swing.JTextField" binding="textNumberPreventive">
             <constraints>
-              <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
             <properties>
+              <background color="-2894893"/>
+              <editable value="false"/>
+              <font name="Calibri" size="22" style="1"/>
+              <foreground color="-4516820"/>
+              <horizontalAlignment value="4"/>
               <text value="54"/>
             </properties>
           </component>
           <component id="3dd88" class="javax.swing.JTextField" binding="textNumberCorrective">
             <constraints>
-              <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="15" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
             <properties>
+              <background color="-2894893"/>
+              <editable value="false"/>
+              <font name="Calibri" size="22" style="1"/>
+              <foreground color="-13675370"/>
+              <horizontalAlignment value="2"/>
               <text value="46"/>
             </properties>
           </component>
           <component id="1f087" class="javax.swing.JProgressBar" binding="preventiveVsCorrective">
             <constraints>
-              <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="15" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1"/>
               <foreground color="-13675370"/>
-              <string value="54%"/>
+              <string value=""/>
               <stringPainted value="true"/>
               <value value="54"/>
             </properties>
           </component>
-          <component id="2781a" class="javax.swing.JLabel" binding="labelFourth">
-            <constraints>
-              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font name="Calibri" size="18"/>
-              <foreground color="-13675370"/>
-              <text value="Cuarta"/>
-            </properties>
-          </component>
-          <component id="79744" class="javax.swing.JLabel" binding="labelFifth">
-            <constraints>
-              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font name="Calibri" size="18"/>
-              <foreground color="-13675370"/>
-              <text value="Quinta"/>
-            </properties>
-          </component>
-          <component id="8c5d9" class="javax.swing.JTextField" binding="textThird">
-            <constraints>
-              <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <text value="Hemodialisis"/>
-            </properties>
-          </component>
-          <component id="30c18" class="javax.swing.JTextField" binding="textFourth">
-            <constraints>
-              <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <text value="CEyE"/>
-            </properties>
-          </component>
-          <component id="32c05" class="javax.swing.JTextField" binding="textFifth">
-            <constraints>
-              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <text value="Urgencias"/>
-            </properties>
-          </component>
           <component id="42e4c" class="javax.swing.JProgressBar" binding="progressBarFourth">
             <constraints>
-              <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1"/>
@@ -324,7 +240,7 @@
           </component>
           <component id="dba7d" class="javax.swing.JProgressBar" binding="progressBarFifith">
             <constraints>
-              <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="12" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1"/>
@@ -407,33 +323,125 @@
           </grid>
           <hspacer id="947f6">
             <constraints>
-              <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
           <vspacer id="76468">
             <constraints>
-              <grid row="15" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="18" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <vspacer id="5e778">
             <constraints>
-              <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="17" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <vspacer id="4a59e">
             <constraints>
-              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <component id="d0588" class="javax.swing.JLabel">
             <constraints>
-              <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="16" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <icon value="Img/graph.jpg"/>
               <text value="&#10;"/>
             </properties>
           </component>
+          <component id="40bdf" class="javax.swing.JTextField" binding="textFirst">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-2894893"/>
+              <editable value="false"/>
+              <font name="Calibri" size="16"/>
+              <foreground color="-13675370"/>
+              <text value="UTI"/>
+            </properties>
+          </component>
+          <component id="af632" class="javax.swing.JTextField" binding="textSecond">
+            <constraints>
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-2894893"/>
+              <editable value="false"/>
+              <font name="Calibri" size="16"/>
+              <foreground color="-13675370"/>
+              <text value="Imagen"/>
+            </properties>
+          </component>
+          <component id="8c5d9" class="javax.swing.JTextField" binding="textThird">
+            <constraints>
+              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-2894893"/>
+              <editable value="false"/>
+              <font name="Calibri" size="16"/>
+              <foreground color="-13675370"/>
+              <text value="Hemodialisis"/>
+            </properties>
+          </component>
+          <component id="30c18" class="javax.swing.JTextField" binding="textFourth">
+            <constraints>
+              <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-2894893"/>
+              <editable value="false"/>
+              <font name="Calibri" size="16"/>
+              <foreground color="-13675370"/>
+              <text value="CEyE"/>
+            </properties>
+          </component>
+          <component id="32c05" class="javax.swing.JTextField" binding="textFifth">
+            <constraints>
+              <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-2894893"/>
+              <editable value="false"/>
+              <font name="Calibri" size="16"/>
+              <foreground color="-13675370"/>
+              <text value="Urgencias"/>
+            </properties>
+          </component>
+          <vspacer id="4644">
+            <constraints>
+              <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="3023c" class="javax.swing.JButton" binding="recalcularIndicadoresButton" default-binding="true">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13675370"/>
+              <font name="Calibri" size="18"/>
+              <foreground color="-1"/>
+              <icon value="Img/kpi.png"/>
+              <text value="Recalcular Indicadores"/>
+            </properties>
+          </component>
+          <vspacer id="6f795">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
         </children>
       </grid>
     </children>

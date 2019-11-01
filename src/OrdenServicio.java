@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 public class OrdenServicio {
     // Root panel
-    public JPanel titleDeleteEquipment;
+    public JPanel mainPanel;
+    public JPanel serviceOrderPanel;
 
     private JLabel serialNumber;
     private JLabel labelArea;
@@ -89,17 +90,20 @@ public class OrdenServicio {
     private JLabel registerTextEquipment;
     private JButton buscarButton;
 
-    public JPanel serviceOrderPanel;
+
     private JComboBox comboBoxReceives;
     private JComboBox comboBoxAsigned;
     private JLabel errorLabel;
     private JButton imprimirButton;
+
+
 
     private Controller controller;
     private String[] userNames;
 
     public OrdenServicio(Controller controller){
         this.controller = controller;
+        serviceOrderPanel.setPreferredSize(new Dimension(1000,1200));
 
         Color backColor = new Color(47,84,150);
         this.editorNewParts.setBorder(new LineBorder(backColor));
@@ -158,7 +162,7 @@ public class OrdenServicio {
                         }
                         Graphics2D g2 = (Graphics2D)pg;
                         g2.translate(pf.getImageableX(), pf.getImageableY());
-                        g2.scale(0.56,0.6);
+                        g2.scale(0.49,0.55);
 
                         serviceOrderPanel.paint(g2);
                         return Printable.PAGE_EXISTS;

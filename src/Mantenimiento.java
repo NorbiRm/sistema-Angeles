@@ -24,6 +24,7 @@ public class Mantenimiento {
     private JButton incidentReport;
     private JButton viewFullTable;
     private JPanel titlePanel;
+    private JButton indicatorMenuButton;
 
     private Controller controller;
 
@@ -56,9 +57,9 @@ public class Mantenimiento {
             public void actionPerformed(ActionEvent e) {
                 OrdenServicio form = new OrdenServicio(controller);
                 JFrame mainFrame = new JFrame("Nueva Orden de Servicio");
-                mainFrame.setContentPane(form.serviceOrderPanel);
+                mainFrame.setContentPane(form.mainPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                mainFrame.setSize(1100, 900);
+                mainFrame.setSize(1280, 900);
                 mainFrame.setResizable(false);
                 mainFrame.setVisible(true);
             }
@@ -68,9 +69,9 @@ public class Mantenimiento {
             public void actionPerformed(ActionEvent e) {
                 Incidencia form = new Incidencia();
                 JFrame mainFrame = new JFrame("Nuevo Registro de Incidente");
-                mainFrame.setContentPane(form.incidentPanel);
+                mainFrame.setContentPane(form.mainPanel);
                 mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                mainFrame.setSize(1100, 900);
+                mainFrame.setSize(1280, 900);
                 mainFrame.setResizable(false);
                 mainFrame.setVisible(true);
             }
@@ -82,6 +83,16 @@ public class Mantenimiento {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setContentPane(home.homePanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+    public void showCalendar(JFrame f, Calendario cal){
+        this.calendarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(cal.calendarPanel);
                 f.revalidate();
                 f.repaint();
             }
@@ -102,6 +113,16 @@ public class Mantenimiento {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setContentPane(inv.invPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+    public void showIndicators(JFrame f, Indicador ind){
+        this.indicatorMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(ind.subPanel);
                 f.revalidate();
                 f.repaint();
             }
