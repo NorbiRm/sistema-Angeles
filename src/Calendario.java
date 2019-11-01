@@ -48,6 +48,10 @@ public class Calendario {
                 setNum_month(comboBoxMonths.getSelectedItem().toString());
                 System.out.println(num_month);
                 tableCalendar.setModel(generateModel());
+                tableCalendar.getColumnModel().getColumn(0).setMinWidth(110);
+                tableCalendar.getColumnModel().getColumn(0).setPreferredWidth(110);
+                tableCalendar.getColumnModel().getColumn(1).setMinWidth(200);
+                tableCalendar.getColumnModel().getColumn(1).setPreferredWidth(200);
             }
         });
 
