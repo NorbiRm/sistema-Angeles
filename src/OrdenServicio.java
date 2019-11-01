@@ -20,7 +20,7 @@ public class OrdenServicio {
     private JTextField textDepartment;
     private JTextField textReporter;
     private JTextField textReportedFailure;
-    private JTextField textField9;
+    private JTextField textTrabajo;
     private JCheckBox checkEquipment;
     private JCheckBox checkTechnique;
     private JCheckBox checkOperation;
@@ -157,7 +157,6 @@ public class OrdenServicio {
         imprimirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saveServicio();
                 PrinterJob job = PrinterJob.getPrinterJob();
                 job.setJobName("Imprimir Orden Servicio");
                 job.setPrintable(new Printable(){
@@ -191,23 +190,31 @@ public class OrdenServicio {
     }
 
     public void saveServicio(){
-        String folio = "000";
-        String num_control ="";
+        String folio = this.formattedSolicitude.getText();
+        String num_control =this.formattedControlNumber.getText();
         String serie = this.textSerialNumber.getText();
         String equipo = this.textEquipment.getText();
         String marca = this.textBrand.getText();
-        String modelo = this.textModel.getText();
-        String fecha_sol = "";
-        String fecha_term = "";
-        String area = "";
+        //String modelo = this.textModel.getText();
+        String fecha_sol = this.formattedDateStart.getText();
+        String fecha_term = this.formattedDateFinish.getText();
+        String departamento = this.textDepartment.getText();
+        String asignado = this.comboBoxAsigned.getSelectedItem().toString();
         String falla = this.textReportedFailure.getText();
-        String trabajo = "";
-        String partes = "";
-        String costo = "";
-        String costo_rev ="";
-        String costo_toal = "";
-        String[] datos = {folio, num_control, serie, equipo, marca, modelo, fecha_sol, fecha_term,
-                area, falla, trabajo, partes, costo, costo_rev, costo_toal};
+        String trabajo = this.textTrabajo.getText();
+        String partes = this.editorNewParts.getText();
+        String costo_ref = this.costPartsEdit.getText();
+        String costo_serv = this.formattedTextField4.getText();
+        String costo_total = this.formattedTextField3.getText();;
+        String horas_ing = this.formattedHours.getText();
+        String costo_hora_ing = this.formattedTextField5.getText();
+        String area = this.comboBoxArea.getSelectedItem().toString();
+        String reporta = this.textReporter.getText();
+        String recibe = this.textField7.getText();
+        String observaciones = "";
+        String[] datos = {folio, num_control, serie, equipo, marca, fecha_sol, fecha_term,
+                departamento, asignado, falla, trabajo, partes, costo_ref, costo_serv,
+                costo_total, horas_ing, costo_hora_ing, area, reporta, falla, recibe, observaciones};
         controller.system.addServicio(datos);
         interfaz_mantto.maintTable.setModel(interfaz_mantto.generateModel(true));
     }
