@@ -64,7 +64,6 @@ public class Incidencia {
     private JTextPane textPaneBackground;
     private JTextPane textPaneActions;
     private JTextPane textPaneRecommendations;
-    private JButton saveButton;
     private JCheckBox checkProtection;
     private JCheckBox checkEmergency;
     private JCheckBox checkDangerousMaterials;

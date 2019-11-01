@@ -612,18 +612,6 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="b3e44" class="javax.swing.JButton" binding="saveButton">
-                <constraints>
-                  <grid row="27" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-13675370"/>
-                  <font name="Calibri" size="18"/>
-                  <foreground color="-1"/>
-                  <horizontalTextPosition value="0"/>
-                  <text value="Guardar"/>
-                </properties>
-              </component>
               <hspacer id="20edb">
                 <constraints>
                   <grid row="22" column="8" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -631,11 +619,11 @@
               </hspacer>
               <component id="e14ba" class="javax.swing.JButton" binding="imprimirButton" default-binding="true">
                 <constraints>
-                  <grid row="27" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="27" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-13675370"/>
-                  <font name="Calibri" size="14"/>
+                  <font name="Calibri" size="18"/>
                   <foreground color="-1"/>
                   <text value="Imprimir"/>
                 </properties>

@@ -20,7 +20,6 @@ public class Mantenimiento {
     private JTextField searchMaintentanceTextField;
     private JComboBox filterColumn;
     private JButton generateOrder;
-    private JButton exportHistory;
     private JButton incidentReport;
     private JButton viewFullTable;
     private JPanel titlePanel;

@@ -10,7 +10,6 @@ import java.util.Calendar;
 public class Calendario {
     private JComboBox comboBoxMonths;
     private JTable tableCalendar;
-    private JButton reagendarServicioButton;
     private JButton generarOrdenDeServicioButton;
     private JLabel titleCalendar;
     private JLabel labelLogo;
@@ -22,6 +21,7 @@ public class Calendario {
     private JButton inventoryMenuButton;
     private JButton usersMenuButton;
     private JButton indicatorMenuButton;
+    private JComboBox comboBox1;
     private Controller controller;
 
     public int num_month;
@@ -38,6 +38,10 @@ public class Calendario {
         tableCalendar.getTableHeader().setReorderingAllowed(false);
         tableCalendar.getTableHeader().setBackground(backColor);
         tableCalendar.getTableHeader().setForeground(Color.white);
+        tableCalendar.getColumnModel().getColumn(0).setMinWidth(110);
+        tableCalendar.getColumnModel().getColumn(0).setPreferredWidth(110);
+        tableCalendar.getColumnModel().getColumn(1).setMinWidth(200);
+        tableCalendar.getColumnModel().getColumn(1).setPreferredWidth(200);
         comboBoxMonths.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
