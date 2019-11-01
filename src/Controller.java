@@ -10,10 +10,11 @@ import java.io.*;
 import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Vector;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Controller {
@@ -27,7 +28,7 @@ public class Controller {
         this.cols_usuarios = new String[]{"Nombre", "Puesto", "Genero", "Fecha de Registro"};
         this.cols_equipos = new String[]{"Numero de control", "Equipo", "Marca", "Modelo", "Numero de serie", "Area", "Proveedor de compra",
                 "Accesorios", "Numero de activo fijo", "Ubicacion", "Fecha de instalacion", "Estado de equipo", "Proveedor de servicio",
-                "Contacto", "Telefono", "Refacciones Cambiadas", "Consumibles", "Frecuencia de mantenimiento"};
+                "Contacto", "Telefono", "Refacciones Cambiadas", "Consumibles", "Frecuencia"};
         this.cols_servicios = new String[]{"Folio", "No_Control", "No_Serie", "Equipo", "Marca", "Fecha_Solicitud",
                 "Fecha_Terminacion", "Departamento_Solicitante", "Asignado_A", "Falla_Encontrada", "Trabajo_Realizado",
                 "Partes_Nuevas", "Costo_Refaccion", "Costo_Servicio_Externo", "Costo_Total", "Horas_Ingeniero",
@@ -43,7 +44,9 @@ public class Controller {
         rows_equipos = loadSheet("EQUIPO", this.cols_equipos, this.cols_equipos.length);
         for(Object[] row: rows_equipos) {
             if(!rowIsNull(row)){
-                equipos.add(new Equipo(row));
+                Equipo equipo = new Equipo(row);
+                equipo.setProx_mantto();
+                equipos.add(equipo);
             }
         }
         return equipos;
@@ -273,6 +276,29 @@ public class Controller {
             }
         };
         return model;
+    }
+
+    /*public DefaultTableModel generateCalendarModel(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("day");
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        String[] monthe_names = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+        Month[] months;
+        Month month_converter;
+        YearMonth yearMonthObject = YearMonth.of(year, Calendar.MONTH);
+        int daysInMonth = yearMonthObject.lengthOfMonth();
+        for(int i=0;i<monthe_names.length;i++){
+            months[0] =
+        }
+        System.out.println(dia);
+    }*/
+
+    public Object[] concatArrays(Object[] array1, Object[] array2){
+        Object[] result = new Object[array1.length + array2.length];
+        int limit = array1.length<=array2.length? array1.length : array2.length;
+        for(int i=0;i<result.length;i++){
+            result[i] = i<limit? array1[i]: array2[i-array1.length];
+        }
+        return result;
     }
 
 

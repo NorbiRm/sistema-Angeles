@@ -61,8 +61,33 @@ public class Sistema {
                 }
             }
         }
-
         return results.length>0? results: null;
+    }
+
+    public Object[][] getEquiposMantoByMonth(int num_month){
+        Object[][] results = new Object[this.equipos.size()][];
+        int cont = 0;
+        for(Equipo equipo: this.equipos){
+            Object[] e = equipo.getAsRow();
+            if(Integer.parseInt(equipo.prox_mantto.split("/")[1]) == num_month){
+                Object[] result = {equipo.num_control, equipo.equipo};
+                results[cont] = concatArrays(result, markedDay(Integer.parseInt(equipo.prox_mantto.split("/")[1])));
+                cont++;
+            }
+        }
+        return results;
+    }
+
+    public Object[] markedDay(int num_day){
+        Object[] result = new  Object[num_day];
+        for(int i=0;i<num_day;i++){
+            if(i+1 == num_day){
+                result[i] = "X";
+            }else{
+                result[i] = "";
+            }
+        }
+        return result;
     }
 
     public boolean addUsuario(Object[] row){
@@ -122,5 +147,20 @@ public class Sistema {
         System.out.println(this.mantenimientos.toString());
         System.out.println("//////////////////////////////////////");
 
+    }
+
+    public Object[] concatArrays(Object[] array1, Object[] array2){
+        Object[] result = new Object[array1.length + array2.length];
+        System.out.println(result.length);
+        int limit = array1.length<=array2.length? array1.length : array2.length;
+        int i;
+        int f;
+        for(i=0;i<array1.length;i++){
+            result[i] = array1[i];
+        }
+        for(f = 1;f<=array2.length;f++, i++){
+            result[i] =  array2[f-1];
+        }
+        return result;
     }
 }

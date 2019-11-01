@@ -3,6 +3,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.YearMonth;
+import java.util.Arrays;
+import java.util.Calendar;
 
 public class Calendario {
     private JComboBox comboBoxMonths;
@@ -21,15 +24,28 @@ public class Calendario {
     private JButton indicatorMenuButton;
     private Controller controller;
 
+    public int num_month;
+    public int num_days;
+
     public Calendario( Controller controller){
         this.controller = controller;
-
-        tableCalendar.setModel(generateModel(true));
+        this.num_month = 1;
+        this.comboBoxMonths.setSelectedIndex(this.num_month-1);
+        //tableCalendar.setModel(generateModel(true));
+        tableCalendar.setModel(generateModel());
         Color backColor = new Color(47,84,150);
         tableCalendar.getTableHeader().setFont(new Font("Calibri", Font.BOLD, 18));
         tableCalendar.getTableHeader().setReorderingAllowed(false);
         tableCalendar.getTableHeader().setBackground(backColor);
         tableCalendar.getTableHeader().setForeground(Color.white);
+        comboBoxMonths.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setNum_month(comboBoxMonths.getSelectedItem().toString());
+                System.out.println(num_month);
+                tableCalendar.setModel(generateModel());
+            }
+        });
 
     }
     public void showHome(JFrame f, Inicio home){
@@ -88,12 +104,26 @@ public class Calendario {
         // TODO: place custom component creation code here
     }
 
-    private DefaultTableModel generateModel(Boolean isShort){
-        String[] header = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
-        String[] header_completo = controller.cols_equipos;
-        Object[][] data = controller.showEquipo();
-        String[] headers = isShort ? header : header_completo;
-        DefaultTableModel model = new DefaultTableModel(data, headers) {
+
+    private DefaultTableModel generateModel(){
+        String[] header_incom = {"Num_Control", "Equipo"};
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        //int month = Calendar.getInstance().get(Calendar.MONTH);
+        YearMonth yearMonthObject = YearMonth.of(year, this.num_month);
+        int num_days = yearMonthObject.lengthOfMonth();
+        System.out.println("NUM DAYS %s".format(String.valueOf(num_days)));
+        String[] day_num = new String[num_days];
+        for(int i=0; i<num_days; i++){
+            day_num[i] = String.valueOf(i+1);
+        }
+        Object[] concat = controller.concatArrays(header_incom, day_num);
+        String[] header = Arrays.copyOf(concat, concat.length, String[].class);
+        Object[][] data;
+        //Object[][] data;
+        data = this.controller.system.getEquiposMantoByMonth(this.num_month);
+
+        //String[] headers = isShort ? header : header_completo;
+        DefaultTableModel model = new DefaultTableModel(data, header) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 //all cells false
@@ -101,5 +131,20 @@ public class Calendario {
             }
         };
         return model;
+    }
+
+    public void setNum_month(String month){
+        Object[][] months = {
+                {"Enero", 1}, {"Febrero", 2}, {"Marzo", 3}, {"Abril", 4},
+                {"Mayo", 5}, {"Junio", 6}, {"Julio", 7}, {"Agosto", 8},
+                {"Septiembre", 9}, {"Octubre", 10}, {"Noviembre", 11},
+                {"Diciembre", 12}
+        };
+        for(Object[] m: months){
+            if(month.equals(m[0]))
+                this.num_month = (int)m[1];
+        }
+        this.num_month = 12;
+
     }
 }

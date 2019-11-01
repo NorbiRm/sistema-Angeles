@@ -18,7 +18,7 @@ public class Equipo {
     public String telefono;
     public ArrayList<String> refacciones;
     public ArrayList<String> consumibles;
-    public ArrayList<String> frecuencia; //CHECAR
+    public String frecuencia; //CHECAR
     public String prox_mantto;
 
     public Equipo(Object[] atts){
@@ -39,11 +39,11 @@ public class Equipo {
         this.telefono = (String) atts[14];
         this.refacciones = new ArrayList<>();
         this.consumibles = new ArrayList<>();
-        this.frecuencia = new ArrayList<>();
+        this.frecuencia = (String) atts[17];
         this.prox_mantto = "";
     }
 
-    public Equipo(String num_control, String equipo, String marca, String modelo, String num_serie, String area, String proveedor_compra, ArrayList<String> accesorios, String num_flujo, String ubicacion, String fecha_instalacion, String estado, String proveedor_serv, String contacto, String telefono, ArrayList<String> refacciones, ArrayList<String> consumibles, ArrayList<String> frecuencia) {
+    public Equipo(String num_control, String equipo, String marca, String modelo, String num_serie, String area, String proveedor_compra, ArrayList<String> accesorios, String num_flujo, String ubicacion, String fecha_instalacion, String estado, String proveedor_serv, String contacto, String telefono, ArrayList<String> refacciones, ArrayList<String> consumibles, String frecuencia) {
         this.num_control = num_control;
         this.equipo = equipo;
         this.marca = marca;
@@ -86,6 +86,28 @@ public class Equipo {
         equipo[16] = this.consumibles;
         equipo[17] = this.frecuencia;
         return equipo;
+    }
+
+    public void setProx_mantto(){
+        String[] date;
+        if(this.prox_mantto == ""){
+             date = this.fecha_instalacion.split("/");
+        } else{
+            date = this.prox_mantto.split("/");
+        }
+        System.out.println("FECHA:");
+        if(this.frecuencia == null)
+            this.frecuencia = "3";
+        System.out.println(this.frecuencia);
+        String mes = date[1];
+        String ano = date[2];
+        int num_mes = Integer.parseInt(mes);
+        int next_mes = num_mes + (int)Double.parseDouble(this.frecuencia);
+        if(next_mes>12){
+            next_mes = next_mes - 12;
+            ano = String.valueOf(Integer.parseInt(ano) + 1);
+        }
+        this.prox_mantto = date[0] + "/"+String.valueOf(next_mes)+"/"+ano;
     }
 
 }
