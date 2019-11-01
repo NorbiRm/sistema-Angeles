@@ -71,7 +71,7 @@ public class Sistema {
             Object[] e = equipo.getAsRow();
             if(Integer.parseInt(equipo.prox_mantto.split("/")[1]) == num_month){
                 Object[] result = {equipo.num_control, equipo.equipo};
-                results[cont] = concatArrays(result, markedDay(Integer.parseInt(equipo.prox_mantto.split("/")[1])));
+                results[cont] = concatArrays(result, markedDay(Integer.parseInt(equipo.prox_mantto.split("/")[0])));
                 cont++;
             }
         }

@@ -134,6 +134,9 @@ public class Calendario {
     }
 
     public void setNum_month(String month){
+        System.out.println("MES");
+        System.out.println(month);
+        int actual_month = this.num_month;
         Object[][] months = {
                 {"Enero", 1}, {"Febrero", 2}, {"Marzo", 3}, {"Abril", 4},
                 {"Mayo", 5}, {"Junio", 6}, {"Julio", 7}, {"Agosto", 8},
@@ -141,10 +144,11 @@ public class Calendario {
                 {"Diciembre", 12}
         };
         for(Object[] m: months){
-            if(month.equals(m[0]))
+            if(month.replace(" ", "").equals(m[0])){
+                System.out.println("ENCONTRO");
+                System.out.println((int)m[1]);
                 this.num_month = (int)m[1];
+            }
         }
-        this.num_month = 12;
-
     }
 }
