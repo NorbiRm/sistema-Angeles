@@ -10,7 +10,6 @@ import java.util.Calendar;
 public class Calendario {
     private JComboBox comboBoxMonths;
     private JTable tableCalendar;
-    private JButton generarOrdenDeServicioButton;
     private JLabel titleCalendar;
     private JLabel labelLogo;
 
