@@ -58,5 +58,18 @@ public class Main {
         calendarWindow.showMaintenance(mainFrame, maintenanceWindow);
         calendarWindow.showUsers(mainFrame, userWindow);
         calendarWindow.showIndicators(mainFrame, indicatorWindow);
+
+        mainFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                if (JOptionPane.showConfirmDialog(mainFrame,
+                        "¿Quiere cerrar el sistema?", "Cerrar Sistema",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+                    controller.updateDB();
+                    System.exit(0);
+                }
+            }
+        });
     }
 }

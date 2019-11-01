@@ -13,7 +13,7 @@ public class Servicio {
     public String asignado_a;
     public String falla_encontrada;
     public String trabajo_realizado;
-    public ArrayList<String> partes_nuevas;
+    public String partes_nuevas;
     public double costo_refacciones;
     public double costo_servicio;
     public double total;
@@ -29,7 +29,7 @@ public class Servicio {
 
     public Servicio(String folio, String num_control, String num_serie, String equipo, String marca, String fecha_solicitud,
                     String fecha_terminación, String departamento_solicitante, String asignado_a, String falla_encontrada,
-                    String trabajo_realizado, ArrayList<String> partes_nuevas, double costo_refacciones, double costo_servicio,
+                    String trabajo_realizado, String partes_nuevas, double costo_refacciones, double costo_servicio,
                     double total, double horas_ing, double costo_hora, String area, String reporta, String falla, String recibe,
                     String oberservaciones) {
         this.folio = folio;
@@ -74,7 +74,7 @@ public class Servicio {
         this.asignado_a = (String)atts[8];
         this.falla_encontrada = (String)atts[9];
         this.trabajo_realizado = (String)atts[10];
-        this.partes_nuevas = new ArrayList<>();
+        this.partes_nuevas = (String)atts[11];
         this.costo_refacciones = Double.parseDouble((String)atts[12]);
         this.costo_servicio = Double.parseDouble((String)atts[13]);
         this.total = Double.parseDouble((String)atts[14]);

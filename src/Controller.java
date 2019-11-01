@@ -1,6 +1,8 @@
+import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Sheet;
 import sun.net.www.content.text.Generic;
@@ -162,6 +164,7 @@ public class Controller {
         }catch(Exception e){
             System.err.println("Error while loading workbook");
             System.out.println(e.toString());
+            updateDB();
             System.exit(1); //if error
         }
         return sheet_rows; //return model;
@@ -249,6 +252,7 @@ public class Controller {
                 cleanRows.add(row);
             } catch(ParseException e){
                 System.out.println("Error while parsing dates");
+                updateDB();
                 System.exit(1);
             }
         }
@@ -299,6 +303,94 @@ public class Controller {
             result[i] = i<limit? array1[i]: array2[i-array1.length];
         }
         return result;
+    }
+
+    public void updateDB(){
+        //equipos
+        String[] headers_equipos = this.cols_equipos;
+        //usuarios
+        String[] headers_usuarios = this.cols_usuarios;
+        //servicios
+        String[] headers_manttos = this.cols_servicios;
+        XSSFWorkbook wb = new XSSFWorkbook();
+        XSSFSheet sheet_equipos = wb.createSheet("EQUIPO");
+        XSSFSheet sheet_usuarios = wb.createSheet("USUARIOS");
+        XSSFSheet sheet_mantenimientos = wb.createSheet("MANTENIMIENTO");
+
+        int header_colnum = 0;
+        int colnum = 0;
+
+        Row header_equipos = sheet_equipos.createRow(0);
+        for(String head: headers_equipos){
+            Cell cell = header_equipos.createCell(header_colnum);
+            cell.setCellValue(head);
+            header_colnum+=1;
+        }
+        header_colnum = 0;
+
+        Row header_usuarios = sheet_usuarios.createRow(0);
+        for(String head: headers_usuarios){
+            Cell cell = header_usuarios.createCell(header_colnum);
+            cell.setCellValue(head);
+            header_colnum+=1;
+        }
+        header_colnum = 0;
+
+        Row header_mantenimientos = sheet_mantenimientos.createRow(0);
+        for(String head: headers_manttos){
+            Cell cell = header_mantenimientos.createCell(header_colnum);
+            cell.setCellValue(head);
+            header_colnum+=1;
+        }
+
+        Object[][] equipos = showEquipo();
+        int rowCount = 1;
+        for (Object[] equipo : equipos) {
+            Row row = sheet_equipos.createRow(rowCount);
+            int columnCount = 0;
+
+            for (Object field : equipo) {
+                Cell cell = row.createCell(columnCount);
+                cell.setCellValue(String.valueOf(field));
+                columnCount+=1;
+            }
+            rowCount += 1;
+
+        }
+
+        Object[][] usuarios = showUsuarios();
+        rowCount = 1;
+        for (Object[] usuario : usuarios) {
+            Row row = sheet_usuarios.createRow(rowCount);
+            int columnCount = 0;
+
+            for (Object field : usuario) {
+                Cell cell = row.createCell(columnCount);
+                cell.setCellValue(String.valueOf(field));
+                columnCount+=1;
+            }
+            rowCount += 1;
+        }
+
+        Object[][] mantos = showServicios();
+        rowCount = 1;
+        for (Object[] manto : mantos) {
+            Row row = sheet_mantenimientos.createRow(rowCount);
+            int columnCount = 0;
+
+            for (Object field : manto) {
+                Cell cell = row.createCell(columnCount);
+                columnCount+=1;
+                cell.setCellValue(String.valueOf(field));
+            }
+            rowCount += 1;
+        }
+        try (FileOutputStream outputStream = new FileOutputStream("src/Datos.xlsx", false)) {
+            wb.write(outputStream);
+        } catch (Exception e) {
+            System.out.print("FATAL ERROR, UNABLE TO UPDATE DB");
+            e.printStackTrace();
+        }
     }
 
 

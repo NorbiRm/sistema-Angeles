@@ -64,12 +64,13 @@ public class Sistema {
         return results.length>0? results: null;
     }
 
-    public Object[][] getEquiposMantoByMonth(int num_month){
+    public Object[][] getEquiposMantoByMonth(int num_month, int year){
         Object[][] results = new Object[this.equipos.size()][];
         int cont = 0;
         for(Equipo equipo: this.equipos){
             Object[] e = equipo.getAsRow();
-            if(Integer.parseInt(equipo.prox_mantto.split("/")[1]) == num_month){
+            if(Integer.parseInt(equipo.prox_mantto.split("/")[1]) == num_month &&
+                Integer.parseInt(equipo.prox_mantto.split("/")[2]) == year){
                 Object[] result = {equipo.num_control, equipo.equipo};
                 results[cont] = concatArrays(result, markedDay(Integer.parseInt(equipo.prox_mantto.split("/")[0])));
                 cont++;

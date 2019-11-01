@@ -25,12 +25,14 @@ public class Calendario {
     private Controller controller;
 
     public int num_month;
-    public int num_days;
+    public int num_year;
 
     public Calendario( Controller controller){
         this.controller = controller;
         this.num_month = 1;
         this.comboBoxMonths.setSelectedIndex(this.num_month-1);
+        num_year = Calendar.getInstance().get(Calendar.YEAR);
+        this.comboBox1.setSelectedIndex(num_year-2000);
         //tableCalendar.setModel(generateModel(true));
         tableCalendar.setModel(generateModel());
         Color backColor = new Color(47,84,150);
@@ -55,6 +57,17 @@ public class Calendario {
             }
         });
 
+        comboBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setNum_month(comboBoxMonths.getSelectedItem().toString());
+                tableCalendar.setModel(generateModel());
+                tableCalendar.getColumnModel().getColumn(0).setMinWidth(110);
+                tableCalendar.getColumnModel().getColumn(0).setPreferredWidth(110);
+                tableCalendar.getColumnModel().getColumn(1).setMinWidth(200);
+                tableCalendar.getColumnModel().getColumn(1).setPreferredWidth(200);
+            }
+        });
     }
     public void showHome(JFrame f, Inicio home){
         this.homeMenuButton.addActionListener(new ActionListener() {
@@ -127,8 +140,14 @@ public class Calendario {
         Object[] concat = controller.concatArrays(header_incom, day_num);
         String[] header = Arrays.copyOf(concat, concat.length, String[].class);
         Object[][] data;
+        int year_filter = year;
+        try{
+            year_filter = Integer.parseInt(comboBox1.getSelectedItem().toString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         //Object[][] data;
-        data = this.controller.system.getEquiposMantoByMonth(this.num_month);
+        data = this.controller.system.getEquiposMantoByMonth(this.num_month, year_filter);
 
         //String[] headers = isShort ? header : header_completo;
         DefaultTableModel model = new DefaultTableModel(data, header) {

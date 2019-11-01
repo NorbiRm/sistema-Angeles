@@ -8,7 +8,7 @@ public class Equipo {
     public String num_serie;
     public String area;
     public String proveedor_compra;
-    public ArrayList<String> accesorios;
+    public String accesorios;
     public String num_flujo;
     public String ubicacion;
     public String fecha_instalacion; //VERIFICAR
@@ -16,8 +16,8 @@ public class Equipo {
     public String proveedor_serv;
     public String contacto;
     public String telefono;
-    public ArrayList<String> refacciones;
-    public ArrayList<String> consumibles;
+    public String refacciones;
+    public String consumibles;
     public String frecuencia; //CHECAR
     public String prox_mantto;
 
@@ -29,7 +29,7 @@ public class Equipo {
         this.num_serie = (String) atts[4];
         this.area = (String) atts[5];
         this.proveedor_compra = (String) atts[6];
-        this.accesorios = new ArrayList<>();
+        this.accesorios = (String) atts[7];
         this.num_flujo = (String) atts[8];
         this.ubicacion = (String) atts[9];
         this.fecha_instalacion = (String) atts[10];
@@ -37,13 +37,13 @@ public class Equipo {
         this.proveedor_serv = (String) atts[12];
         this.contacto = (String) atts[13];
         this.telefono = (String) atts[14];
-        this.refacciones = new ArrayList<>();
-        this.consumibles = new ArrayList<>();
+        this.refacciones = (String) atts[15];
+        this.consumibles = (String) atts[16];
         this.frecuencia = (String) atts[17];
         this.prox_mantto = "";
     }
 
-    public Equipo(String num_control, String equipo, String marca, String modelo, String num_serie, String area, String proveedor_compra, ArrayList<String> accesorios, String num_flujo, String ubicacion, String fecha_instalacion, String estado, String proveedor_serv, String contacto, String telefono, ArrayList<String> refacciones, ArrayList<String> consumibles, String frecuencia) {
+    public Equipo(String num_control, String equipo, String marca, String modelo, String num_serie, String area, String proveedor_compra, String accesorios, String num_flujo, String ubicacion, String fecha_instalacion, String estado, String proveedor_serv, String contacto, String telefono, String refacciones, String consumibles, String frecuencia) {
         this.num_control = num_control;
         this.equipo = equipo;
         this.marca = marca;
