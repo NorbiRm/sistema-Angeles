@@ -52,6 +52,11 @@ public class Main {
         indicatorWindow.showMaintenance(mainFrame, maintenanceWindow);
         indicatorWindow.showUsers(mainFrame, userWindow);
         indicatorWindow.showCalendar(mainFrame, calendarWindow);
-
+        //Calendar Buttons
+        calendarWindow.showHome(mainFrame, homeWindow);
+        calendarWindow.showInventory(mainFrame, inventoryWindow);
+        calendarWindow.showMaintenance(mainFrame, maintenanceWindow);
+        calendarWindow.showUsers(mainFrame, userWindow);
+        calendarWindow.showIndicators(mainFrame, indicatorWindow);
     }
 }

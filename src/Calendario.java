@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Calendario {
     private JComboBox comboBoxMonths;
@@ -11,6 +13,12 @@ public class Calendario {
     private JLabel labelLogo;
 
     public JPanel calendarPanel;
+    private JPanel menuPanel;
+    private JButton homeMenuButton;
+    private JButton maintenanceMenuButton;
+    private JButton inventoryMenuButton;
+    private JButton usersMenuButton;
+    private JButton indicatorMenuButton;
     private Controller controller;
 
     public Calendario( Controller controller){
@@ -23,6 +31,57 @@ public class Calendario {
         tableCalendar.getTableHeader().setBackground(backColor);
         tableCalendar.getTableHeader().setForeground(Color.white);
 
+    }
+    public void showHome(JFrame f, Inicio home){
+        this.homeMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(home.homePanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+    public void showMaintenance(JFrame f, Mantenimiento maint){
+        this.maintenanceMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(maint.maintPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+    public void showInventory(JFrame f, Inventario inv){
+        this.inventoryMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(inv.invPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+
+    public void showUsers( JFrame f, Usuario user){
+        this.usersMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(user.userPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
+    }
+    public void showIndicators(JFrame f, Indicador ind){
+        this.indicatorMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setContentPane(ind.subPanel);
+                f.revalidate();
+                f.repaint();
+            }
+        });
     }
 
     private void createUIComponents() {
