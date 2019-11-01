@@ -15,10 +15,6 @@ public class Mantenimiento {
     private JButton inventoryButton;
     private JButton calendarButton;
     private JButton usersButton;
-    // Maintenance Buttons
-    private JButton searchButton;
-    private JTextField searchMaintentanceTextField;
-    private JComboBox filterColumn;
     private JButton generateOrder;
     private JButton incidentReport;
     private JButton viewFullTable;
