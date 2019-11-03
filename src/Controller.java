@@ -104,7 +104,7 @@ public class Controller {
     }
 
     private Object[] loadWB() throws IOException{
-        String file_path = "src/Datos.xlsx";
+        String file_path = "Datos.xlsx";
         FileInputStream root_excel = new FileInputStream(new File(file_path));
 
         //System.out.println("Se carga el archivo");
